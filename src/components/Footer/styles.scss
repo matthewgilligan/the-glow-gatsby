@@ -1,0 +1,80 @@
+.footer {
+    padding-top: 2rem;
+    background-color: black;
+    color: rgb(153, 153, 153);
+
+    .container {
+        display: flex;
+        flex-direction:column;
+        margin: 0 auto;
+        max-width: 1280px;
+        padding: 0 1rem;
+
+        .wrap {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+
+            a {
+                color: rgb(153, 153, 153);
+            
+                &:hover {
+                    color: white;
+                }
+            }
+
+            .copyright {
+                margin-top: 4px;
+                font-size: .7rem;
+
+                .logo {
+                    height: 70px;
+                    margin-bottom: .5rem;
+                
+                    &:hover {
+                        filter: brightness(0) invert(1) !important;
+                    }
+                }
+            }
+
+            .pages {
+                position: relative;
+                width: 15%;
+                font-size: .9rem;
+                text-transform: uppercase;
+            
+                ul {
+                    position: absolute;
+                    bottom: 0;
+                    padding-left: 0;
+                    list-style-type: none;
+                }
+            
+                li {
+                    margin-top: 8px;
+                }
+            }
+
+            .socials {
+                margin-top: 84px;
+                padding: 0;
+            
+                ul {
+                    display: flex;
+                    list-style-type: none;
+                }
+            
+                li {
+                    margin-right: 1.2rem;
+                    color: rgb(153, 153, 153);
+                    font-size: 1.5rem;
+                    text-decoration: none;
+                }
+            
+                li:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
