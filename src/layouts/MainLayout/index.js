@@ -1,21 +1,21 @@
 import React from 'react';
 
-import './../../styles/index.scss';
-import Footer from './../../components/Footer';
-import Header from './../../components/Header';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import '../../styles/index.scss';
 
-const MainLayout = props => {
+const MainLayout = (props) => {
   return (
-      <div classname="mainLayout">
-        <div className="container">
-          <div className="content">
-            <Header />
-            {props.children}
-          </div>
+    <div className="mainLayout">
+      <div className="container">
+        <div className="content">
+          <Header />
+          {props.children}
         </div>
-        <Footer />
       </div>
+      <Footer />
+    </div>
   )
-};
+}
 
-export default MainLayout;
+export default MainLayout

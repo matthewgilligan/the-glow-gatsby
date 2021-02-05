@@ -66,22 +66,23 @@ input, textarea, button, select, a {
     }
 }
 
-.homeLayout {
+.mainLayout {
     .container {
         margin: 0 auto;
         max-width: 1280px;
         padding-left: 1rem;
         padding-right: 1rem;
-    
+
         display:flex;
         flex-direction:column;
         min-height:100vh;
-
-        .content {
-            flex-grow: 1;
-        }
     }
 }
+
+.content {
+    flex-grow: 1;
+}
+
 
 @media screen and (max-width: 650px) {
     .youtube {
