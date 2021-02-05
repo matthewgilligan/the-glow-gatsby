@@ -8,6 +8,7 @@ const MainLayout = props => {
       <div classname="mainLayout">
         <div className="container">
           <div className="content">
+            
             {props.children}
           </div>
         </div>
