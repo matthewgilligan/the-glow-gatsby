@@ -53,8 +53,7 @@ input, textarea, button, select, a {
     .container {
         margin: 0 auto;
         max-width: 1280px;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding: 0 16px;
     
         display:flex;
         flex-direction:column;
@@ -66,12 +65,11 @@ input, textarea, button, select, a {
     }
 }
 
-.mainLayout {
+.homeLayout {
     .container {
         margin: 0 auto;
         max-width: 1280px;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding: 0 16px;
 
         display:flex;
         flex-direction:column;

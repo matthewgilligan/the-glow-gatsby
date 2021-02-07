@@ -24,7 +24,7 @@ const Header = () => {
 
     return (
         <header className="header">
-            <div className="navTop">
+            <div className="brand">
                 <div className="search">
                     <FiSearch role="button" href="#" />
                 </div>
@@ -43,7 +43,7 @@ const Header = () => {
             </div>
             
             
-            <div className="navBottom">
+            <div className="nav">
                 <ul className="navList">
                     <li>
                         <Link className="navItem" to="/news">News</Link>
