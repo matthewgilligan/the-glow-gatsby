@@ -4,9 +4,17 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const reviewTemplate = path.resolve('./src/templates/Review/index.js')
+  const featureTemplate = path.resolve('./src/templates/Feature/index.js')
 
-  const reviewRes = await graphql(`
+  const res = await graphql(`
     query {
+      allContentfulFeature {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
       allContentfulReview {
         edges {
           node {
@@ -17,7 +25,17 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  reviewRes.data.allContentfulReview.edges.forEach((edge) => {
+  res.data.allContentfulFeature.edges.forEach((edge) => {
+    createPage({
+      component: featureTemplate,
+      path: `/features/${edge.node.slug}`,
+      context: {
+        slug: edge.node.slug
+      }
+    })
+  })
+
+  res.data.allContentfulReview.edges.forEach((edge) => {
     createPage({
       component: reviewTemplate,
       path: `/reviews/${edge.node.slug}`,

@@ -31,12 +31,6 @@ const Review = (props) => {
 
 export const query = graphql`
   query($slug: String!){
-    site {
-      siteMetadata {
-        siteTitle
-        siteUrl
-      }
-    }
     contentfulReview (slug: { eq: $slug }) {
       albumTitle
       description

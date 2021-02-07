@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
+import './styles.scss';
 import Feature from './Feature';
 
 const Features = (props) => {
@@ -43,7 +44,7 @@ const Features = (props) => {
     const features = data.allContentfulFeature.edges;
     
     if (!Array.isArray(features)) return null;
-    
+
     if (features.length < 1) {
         return (
             <div className="products">
@@ -55,18 +56,16 @@ const Features = (props) => {
     };
 
     return (
-        <div>
-            <div className="features">
-                {features.map((edge, pos) => {
-                    const configFeature = {
-                        ...edge.node
-                    };
+        <div className="features">
+            {features.map((edge, pos) => {
+                const configFeature = {
+                    ...edge.node
+                };
 
-                    return (
-                        <Feature key={pos} {...configFeature} />
-                    )
-                })};
-            </div>
+                return (
+                    <Feature key={pos} {...configFeature} />
+                )
+            })};
         </div>
     )
 };

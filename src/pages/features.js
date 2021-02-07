@@ -6,7 +6,7 @@ const FeaturesIndex = () => {
     return (
         <div className="category">
             <div className="categoryTitle">
-                <h1>Hello</h1>
+                <h1>Features</h1>
             </div>
             <Features />
         </div>
