@@ -52,9 +52,6 @@ export const query = graphql`
       }
       albumCover {
         title
-        file {
-          url
-        }
         fluid {
           ...GatsbyContentfulFluid
         }

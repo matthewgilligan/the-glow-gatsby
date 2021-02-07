@@ -1,15 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import MainLayout from '../../layouts/MainLayout';
-
 const NewsTemplate = (props) => {
     const { title } = props.data.contentfulNews;
 
     return (
-        <MainLayout>
+        <div>
             <h1>{title}</h1>
-        </MainLayout>
+        </div>
     )
 };
 

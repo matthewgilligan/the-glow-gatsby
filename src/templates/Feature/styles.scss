@@ -1,0 +1,37 @@
+.featureTemplate {
+  .banner {
+    height: 100px;
+
+    .coverImage {
+      height: 100vh;
+    }
+
+    .details {
+      position: absolute;
+      bottom: 0;
+      width: 1000px;
+      margin: 0 0 60px 60px;
+
+      .credit {
+        display: flex;
+        color: white;
+        font-size: 2rem;
+
+        a {
+          color: white;
+        }
+
+        .date,
+        a {
+          margin-right: 40px;
+        }
+      }
+
+      .title {
+        margin: 0;
+        color: white;
+        font-size: 8rem;
+      }
+    }
+  }
+}
