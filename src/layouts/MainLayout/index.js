@@ -1,8 +1,8 @@
 import React from 'react';
 
+import '../../styles/index.scss';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-import '../../styles/index.scss';
 
 const MainLayout = (props) => {
   return (
