@@ -5,7 +5,7 @@ import Img from 'gatsby-image';
 import './styles.scss';
 import MainLayout from './../../layouts/MainLayout';
 
-const Review = (props) => {
+const ReviewTemplate = (props) => {
   const { albumCover, artist, albumTitle, label, initialReleaseDate } = props.data.contentfulReview;
 
   return (
@@ -72,4 +72,4 @@ export const query = graphql`
   }
 `
 
-export default Review;
+export default ReviewTemplate;

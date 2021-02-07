@@ -1,10 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import MainLayout from './../../layouts/MainLayout';
+import MainLayout from '../../layouts/MainLayout';
 
-const FeatureTemplate = (props) => {
-    const { title } = props.data.contentfulFeature;
+const NewsTemplate = (props) => {
+    const { title } = props.data.contentfulNews;
 
     return (
         <MainLayout>
@@ -15,10 +15,10 @@ const FeatureTemplate = (props) => {
 
 export const query = graphql`
     query($slug: String!){
-        contentfulFeature (slug: { eq: $slug }) {
+        contentfulNews (slug: { eq: $slug }) {
             title
         }
     }
 `
 
-export default FeatureTemplate;
+export default NewsTemplate;

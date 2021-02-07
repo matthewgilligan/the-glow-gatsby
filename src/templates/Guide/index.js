@@ -1,10 +1,11 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 import MainLayout from './../../layouts/MainLayout';
 
-const FeatureTemplate = (props) => {
-    const { title } = props.data.contentfulFeature;
+const GuideTemplate = (props) => {
+    const { title } = props.data.contentfulGuide;
 
     return (
         <MainLayout>
@@ -15,10 +16,10 @@ const FeatureTemplate = (props) => {
 
 export const query = graphql`
     query($slug: String!){
-        contentfulFeature (slug: { eq: $slug }) {
+        contentfulGuide (slug: { eq: $slug }) {
             title
         }
     }
 `
 
-export default FeatureTemplate;
+export default GuideTemplate;
