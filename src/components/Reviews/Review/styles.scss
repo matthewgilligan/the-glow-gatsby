@@ -1,0 +1,27 @@
+.review {
+  flex-basis: calc(33.3333% - 30px);
+  padding: 0 15px;
+
+  .imageWrapper {
+    .image {
+      height: 275px;
+      width: 275px;
+    }
+  }
+
+  .details {
+    padding: 0 15px;
+    color: white;
+
+    .credit {
+      display: flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 1;
+      margin: 30px 0px 20px;
+    }
+  }
+}

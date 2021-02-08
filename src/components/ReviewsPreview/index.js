@@ -9,16 +9,18 @@ const ReviewsPreview = (props) => {
     
     return (
         <section className="reviewsPreview">
-            <div className="reviews">
-                {edges.map((edge, pos) => {
-                    const configReview = {
-                        ...edge.node
-                    };
+            <div className="previewWrap">
+                <div className="reviews">
+                    {edges.map((edge, pos) => {
+                        const configReview = {
+                            ...edge.node
+                        };
 
-                    return (
-                        <Review key={pos} {...configReview} />
-                    )
-                })};
+                        return (
+                            <Review key={pos} {...configReview} />
+                        )
+                    })};
+                </div>
             </div>
         </section>
     )

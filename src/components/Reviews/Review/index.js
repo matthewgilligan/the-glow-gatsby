@@ -10,25 +10,23 @@ const Review = props => {
 
     return (
         <div className="review">
-            <div className="imageWrapper">
-                <Link to={`/reviews/${slug}`}>
+            <Link to={`/reviews/${slug}`}>
+                <div className="imageWrapper">
                     <Img
                         fluid={albumCover.fluid}
                         key={albumCover.fluid.src}
                         alt={albumCover.title}
                         className="image">
                     </Img>
-                </Link>
-            </div>
-            <div className="details">
-                <div className="credit">
-                    <p className="date">{publishedDate}</p>
-                    <p className="author">{artist[0].englishName}</p>
                 </div>
-                <h2 className="title">
-                    {albumTitle}
-                </h2>
-            </div>
+                <div className="details">
+                    <h3 className="author">{artist[0].englishName}</h3>
+                    <h4 className="title">
+                        {albumTitle}
+                    </h4>
+                    <p className="date">{publishedDate}</p>
+                </div>
+            </Link>
         </div>
     )
 };

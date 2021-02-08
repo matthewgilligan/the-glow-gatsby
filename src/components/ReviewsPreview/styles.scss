@@ -2,4 +2,18 @@
   height: 100vh;
   width: 100%;
   background-color: rgb(98, 56, 128);
+
+  .reviews {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+}
+
+.previewWrap {
+  width: calc(100vw - 95px);
+  float: right;
 }
