@@ -1,6 +1,6 @@
 import React from 'react';
 
-import HomeLayout from './../layouts/HomeLayout';
+import MainLayout from './../layouts/MainLayout';
 import Hero from './../components/Hero';
 
 const Home = (props) => {
@@ -11,9 +11,9 @@ const Home = (props) => {
 	}
 
 	return (
-		<HomeLayout>
+		<MainLayout>
 			<Hero {...configLatestInterview} />
-		</HomeLayout>
+		</MainLayout>
 	)
 };
 

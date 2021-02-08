@@ -2,20 +2,15 @@ import React from 'react';
 
 import '../../styles/index.scss';
 import Footer from '../../components/Footer';
-import Header from '../../components/Header';
+import Navigation from '../../components/Navigation';
 
 const MainLayout = (props) => {
-  return (
-    <div className="mainLayout">
-      <div className="container">
-        <div className="content">
-          <Header />
-          {props.children}
-        </div>
-      </div>
-      <Footer />
-    </div>
-  )
+	return (
+		<div className="mainLayout">
+			<Navigation />
+			{props.children}
+		</div>
+	)
 }
 
 export default MainLayout

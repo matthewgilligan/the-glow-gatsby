@@ -3,33 +3,36 @@ import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 
 import './styles.scss';
+import MainLayout from '../../layouts/MainLayout';
 
 const FeatureTemplate = (props) => {
     const { title, coverImage, publishedDate, author } = props.data.contentfulFeature;
 
     return (
-        <div className="featureTemplate">
-            <div className="banner">
-                <Img
-                    fluid={coverImage.fluid}
-                    key={coverImage.fluid.src}
-                    alt={coverImage.title}
-                    className="coverImage">
-                </Img>
-                <div className="details">
-                    <div className="credit">
-                        <p className="date">{publishedDate}</p>
-                        <Link to="">
-                            <p className="author">{author[0].englishName}</p>
-                        </Link>
+        <MainLayout>
+            <div className="featureTemplate">
+                <div className="banner">
+                    <Img
+                        fluid={coverImage.fluid}
+                        key={coverImage.fluid.src}
+                        alt={coverImage.title}
+                        className="coverImage">
+                    </Img>
+                    <div className="details">
+                        <div className="credit">
+                            <p className="date">{publishedDate}</p>
+                            <Link to="">
+                                <p className="author">{author[0].englishName}</p>
+                            </Link>
+                        </div>
+                        <h1 className="title">{title}</h1>
                     </div>
-                    <h1 className="title">{title}</h1>
+                </div>
+                <div className="content">
+                    <p>Hello</p>
                 </div>
             </div>
-            <div className="content">
-                <p>Hello</p>
-            </div>
-        </div>
+        </MainLayout>
     )
 };
 
