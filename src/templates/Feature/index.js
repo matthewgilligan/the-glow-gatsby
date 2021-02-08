@@ -4,9 +4,10 @@ import Img from 'gatsby-image';
 
 import './styles.scss';
 import MainLayout from '../../layouts/MainLayout';
+import RichText from './../../components/RichText';
 
 const FeatureTemplate = (props) => {
-    const { title, coverImage, publishedDate, author } = props.data.contentfulFeature;
+    const { title, coverImage, publishedDate, author, body } = props.data.contentfulFeature;
 
     return (
         <MainLayout>
@@ -28,8 +29,10 @@ const FeatureTemplate = (props) => {
                         <h1 className="title">{title}</h1>
                     </div>
                 </div>
-                <div className="content">
-                    <p>Hello</p>
+                <div className="articleContent">
+                    <div className="body">
+                        <RichText {...body.json} />
+                    </div>
                 </div>
             </div>
         </MainLayout>
@@ -43,6 +46,9 @@ export const query = graphql`
             publishedDate(formatString:"MMMM D YYYY")
             author {
                 englishName
+            }
+            body {
+                json
             }
             coverImage {
                 title
