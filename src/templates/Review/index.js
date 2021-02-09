@@ -8,11 +8,12 @@ import RichText from './../../components/RichText';
 
 const ReviewTemplate = (props) => {
   const { albumCover, artist, author, publishedDate, albumTitle,
-	label, initialReleaseDate, body } = props.data.contentfulReview;
+	label, initialReleaseDate, body, rating } = props.data.contentfulReview;
 
   return (
     <MainLayout>
       <div className="guideTemplate">
+	  		<div className="navColor">a</div>
 			<div className="banner">
 				<Img
 					fluid={albumCover.fluid}
@@ -22,12 +23,17 @@ const ReviewTemplate = (props) => {
 				</Img>
 				<div className="details">
 					<div className="credit">
-						<p className="date">{publishedDate}</p>
+						<p className="date">{initialReleaseDate}</p>
 						<Link to="">
 							<p className="author">{author[0].englishName}</p>
 						</Link>
 					</div>
+					<Link to="">
+						<h2 className="artist">{artist[0].englishName}</h2>
+					</Link>
 					<h1 className="title">{albumTitle}</h1>
+					<h1 className="label">{label}</h1>
+					<h1 className="rating">{rating}</h1>
 				</div>
 			</div>
 			<div className="articleContent">
