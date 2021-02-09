@@ -4,26 +4,37 @@ import Img from 'gatsby-image';
 
 import './styles.scss';
 import MainLayout from './../../layouts/MainLayout';
+import RichText from './../../components/RichText';
 
 const ReviewTemplate = (props) => {
-  const { albumCover, artist, albumTitle, label, initialReleaseDate } = props.data.contentfulReview;
+  const { albumCover, artist, author, publishedDate, albumTitle,
+	label, initialReleaseDate, body } = props.data.contentfulReview;
 
   return (
     <MainLayout>
-      <div className="albumBanner">
-        <Img
-          fluid={albumCover.fluid}
-          key={albumCover.fluid.src}
-          alt={albumCover.title}
-          className="albumCover">
-        </Img>
-        <div className="albumDetails">
-          <Link to={`../../artist/${artist[0].slug}`}>
-            <h1 className="artistName">{artist[0].englishName}</h1>
-          </Link>
-          <h1 className="albumTitle">{albumTitle}</h1>
-          <p className="label">{label} &nbsp;&nbsp;• &nbsp;&nbsp;{initialReleaseDate}</p>
-        </div>
+      <div className="guideTemplate">
+			<div className="banner">
+				<Img
+					fluid={albumCover.fluid}
+					key={albumCover.fluid.src}
+					alt={albumCover.title}
+					className="albumCover">
+				</Img>
+				<div className="details">
+					<div className="credit">
+						<p className="date">{publishedDate}</p>
+						<Link to="">
+							<p className="author">{author[0].englishName}</p>
+						</Link>
+					</div>
+					<h1 className="title">{albumTitle}</h1>
+				</div>
+			</div>
+			<div className="articleContent">
+				<div className="body">
+					<RichText {...body.json} />
+				</div>
+			</div>
       </div>
     </MainLayout>
   )
