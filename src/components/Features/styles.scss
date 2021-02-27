@@ -3,31 +3,47 @@
   flex-wrap: wrap;
   width: 100%;
   padding: 0px;
-  margin: 0 auto;
   box-sizing: border-box;
 
   .feature {
     flex-basis: calc(33.3333% - 30px);
     padding: 0 15px;
+    margin-bottom: 50px;
 
     .imageWrapper {
       .image {
-        height: 275px;
+        height: 170px;
       }
     }
 
     .details {
-      padding: 0 15px;
-
       .credit {
         display: flex;
         -webkit-box-pack: start;
         justify-content: flex-start;
         font-style: normal;
         font-weight: normal;
-        font-size: 14px;
+        font-size: 1.1rem;
         line-height: 1;
-        margin: 30px 0px 20px;
+        text-transform: uppercase;
+        margin-top: 5px;
+
+        .type {
+          span {
+            margin: 0 8px;
+          }
+        }
+
+        .author {
+          font-weight: lighter;
+        }
+      }
+
+      .title {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: normal;
+        line-height: 1.2;
       }
     }
   }

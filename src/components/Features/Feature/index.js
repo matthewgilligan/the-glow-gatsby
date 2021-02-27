@@ -20,7 +20,7 @@ const Feature = props => {
             </div>
             <div className="details">
                 <div className="credit">
-                    <p className="date">{publishedDate}</p>
+                    <p className="type">Feature <span>|</span></p>
                     <p className="author">{author[0].englishName}</p>
                 </div>
                 <h2 className="title">

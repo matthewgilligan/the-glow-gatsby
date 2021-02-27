@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Tera&family=Montserrat:wght@200;300;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Tera&family=Montserrat:wght@300;500;600&display=swap");
 
 html {
   font-size: 10px;
@@ -22,7 +22,7 @@ body {
 body {
   font-family: Montserrat, Helvetica, "Open Sans", Sans-Serif;
   font-size: 1.8rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -85,6 +85,26 @@ a {
 
     .content {
       flex-grow: 1;
+    }
+  }
+}
+
+.indexLayout {
+  .container {
+    width: calc(100vw - 95px);
+    float: right;
+
+    .content {
+      max-width: 1050px;
+      padding-left: 40px;
+    }
+
+    .pageTitle {
+      h1 {
+        font-family: Arial;
+        font-size: 15rem;
+        text-transform: uppercase;
+      }
     }
   }
 }
