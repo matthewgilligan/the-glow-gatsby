@@ -18,6 +18,7 @@ const Album = props => {
                     </Img>
                 </Link>
             </div>
+            
             <div className="details">
                 <h2 className="title">{albumTitle}</h2>
                 <h3 className="artist">{artist[0].englishName}</h3>
