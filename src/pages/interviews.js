@@ -8,8 +8,7 @@ const InterviewsIndex = () => {
     return (
         <IndexLayout title="Interviews">
             <Playlists />
-        </IndexLayout>
-        
+        </IndexLayout>   
     );
 };
 
