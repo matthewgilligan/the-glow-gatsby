@@ -3,8 +3,7 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
 const Playlist = props => {
-    const { title, subtitle, slug, author, publishedDate, 
-        category, genre, coverImage } = props;
+    const { title, slug, publishedDate, artist, coverImage } = props;
 
     return (
         <div className="playlist">
@@ -19,12 +18,7 @@ const Playlist = props => {
                 </Link>
             </div>
             <div className="details">
-                <div className="credit">
-                    <p className="author">{author[0].englishName}</p>
-                </div>
-                <h2 className="title">
-                    {title}
-                </h2>
+                <h2 className="artist">{artist[0].englishName}</h2>
             </div>
         </div>
     )

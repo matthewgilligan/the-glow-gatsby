@@ -6,7 +6,7 @@ import Playlists from './../components/Playlists';
 
 const InterviewsIndex = () => {
     return (
-        <IndexLayout title="Features">
+        <IndexLayout title="Interviews">
             <Playlists />
         </IndexLayout>
         

@@ -11,20 +11,10 @@ const Playlists = (props) => {
                 edges {
                     node {
                         title
-                        subtitle {
-                            json
-                        }
                         slug
-                        author {
-                            englishName
-                            slug
-                        }
                         publishedDate
-                        category {
-                            name
-                        }
-                        genre {
-                            name
+                        artist {
+                            englishName
                         }
                         coverImage {
                             file {
