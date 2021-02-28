@@ -15,6 +15,9 @@ const Albums = () => {
                         artist {
                             englishName
                         }
+                        genre {
+                            name
+                        }
                         albumCover {
                             fluid {
                                 ...GatsbyContentfulFluid
@@ -24,7 +27,7 @@ const Albums = () => {
                                 url
                             }
                         }
-                        publishedDate(formatString:"MMMM DD YYYY")
+                        initialReleaseDate(formatString:"MMMM DD YYYY")
                     }
                 }
             }

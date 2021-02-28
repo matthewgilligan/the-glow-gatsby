@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
 const Album = props => {
-    const { albumTitle, slug, artist, publishedDate, 
+    const { albumTitle, slug, artist, initialReleaseDate, 
         genre, albumCover } = props;
 
     return (
@@ -19,13 +19,10 @@ const Album = props => {
                 </Link>
             </div>
             <div className="details">
-                <div className="credit">
-                    <p className="type">Album <span>|</span></p>
-                    <p className="author">{artist[0].englishName}</p>
-                </div>
-                <h2 className="title">
-                    {albumTitle}
-                </h2>
+                <h2 className="title">{albumTitle}</h2>
+                <h3 className="artist">{artist[0].englishName}</h3>
+                <p className="date">{initialReleaseDate}</p>
+                <p className="genre">{genre.name}</p>
             </div>
         </div>
     )
