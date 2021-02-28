@@ -1,0 +1,50 @@
+.albums {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0px;
+  box-sizing: border-box;
+
+  .album {
+    flex-basis: calc(25% - 30px);
+    padding: 0 15px;
+    margin-bottom: 50px;
+
+    .imageWrapper {
+      .image {
+        height: 170px;
+      }
+    }
+
+    .details {
+      .credit {
+        display: flex;
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.1rem;
+        line-height: 1;
+        text-transform: uppercase;
+        margin-top: 5px;
+
+        .type {
+          span {
+            margin: 0 8px;
+          }
+        }
+
+        .author {
+          font-weight: lighter;
+        }
+      }
+
+      .title {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: normal;
+        line-height: 1.2;
+      }
+    }
+  }
+}

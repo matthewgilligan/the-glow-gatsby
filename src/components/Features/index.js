@@ -19,7 +19,7 @@ const Features = (props) => {
                             englishName
                             slug
                         }
-                        publishedDate(formatString: "MMMM Do YYYY")
+                        publishedDate
                         category {
                             name
                         }
@@ -38,10 +38,36 @@ const Features = (props) => {
                     }
                 }
             }
+            allContentfulReview ( sort: { fields:publishedDate, order:DESC } ) {
+                edges {
+                    node {
+                        albumTitle
+                        slug
+                        publishedDate
+                        artist {
+                            englishName
+                        }
+                        albumCover {
+                            fluid {
+                                ...GatsbyContentfulFluid
+                            }
+                            title
+                            file {
+                                url
+                            }
+                        }
+                    }
+                }
+            }
         }
     `)
 
     const features = data.allContentfulFeature.edges;
+    const reviews = data.allContentfulReview.edges;
+    const allArticles = [];
+
+    features.forEach(edge => allArticles.push(edge));
+    reviews.forEach(edge => allArticles.push(edge));
     
     if (!Array.isArray(features)) return null;
 
