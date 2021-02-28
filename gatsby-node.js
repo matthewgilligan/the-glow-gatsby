@@ -5,12 +5,11 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
 	const featureTemplate = path.resolve('./src/templates/Feature/index.js')
 	const guideTemplate = path.resolve('./src/templates/Guide/index.js')
-	const newsTemplate = path.resolve('./src/templates/News/index.js')
 	const reviewTemplate = path.resolve('./src/templates/Review/index.js')
 
 	const res = await graphql(`
 		query {
-			allContentfulFeature {
+			allContentfulFeature ( filter: { category:{ name: { ne: "Interviews" } } } ) {
 				edges {
 					node {
 						slug
@@ -24,14 +23,14 @@ module.exports.createPages = async ({ graphql, actions }) => {
 					}
 				}
 			}
-			allContentfulNews {
+			allContentfulReview {
 				edges {
 					node {
 						slug
 					}
 				}
 			}
-			allContentfulReview {
+			interviews: allContentfulFeature ( filter: { category:{ name: { eq: "Interviews" } } } ) {
 				edges {
 					node {
 						slug
@@ -61,10 +60,10 @@ module.exports.createPages = async ({ graphql, actions }) => {
 		})
 	})
 
-	res.data.allContentfulNews.edges.forEach((edge) => {
+	res.data.interviews.edges.forEach((edge) => {
 		createPage({
-			component: newsTemplate,
-			path: `/news/${edge.node.slug}`,
+			component: featureTemplate,
+			path: `/interviews/${edge.node.slug}`,
 			context: {
 				slug: edge.node.slug
 			}
