@@ -10,32 +10,33 @@ module.exports = {
     instagramUsername: 'theglow.jp'
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GA_ID
-      }
-    },
-    {
-    resolve: `gatsby-plugin-facebook-pixel`,
-      options: {
-        pixelId: process.env.FACEBOOK_PIXEL_ID
-      },
-    },
-    {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-      options: {
-        googleAnalytics: {
-          trackingId: process.env.GA_ID,
-          // Setting this parameter is optional
-          anonymize: true
-        },
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: process.env.GA_ID
+    //   }
+    // },
+    // {
+    // resolve: `gatsby-plugin-facebook-pixel`,
+    //   options: {
+    //     pixelId: process.env.FACEBOOK_PIXEL_ID
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-plugin-gdpr-cookies`,
+    //   options: {
+    //     googleAnalytics: {
+    //       trackingId: process.env.GA_ID,
+    //       // Setting this parameter is optional
+    //       anonymize: true
+    //     },
+    //   },
+    // },
     'gatsby-plugin-material-ui',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-styled-components',
     {
         resolve: 'gatsby-plugin-mailchimp',
         options: {
