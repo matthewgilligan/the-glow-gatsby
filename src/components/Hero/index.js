@@ -18,7 +18,7 @@ const Hero = (props) => {
 
 	return (
 		<Container>
-			<Link to={`/features/${slug}`}>
+			<Link to={`/interviews/${slug}`}>
 				<Img
 					fluid={coverImage.fluid}
 					key={coverImage.fluid.src}

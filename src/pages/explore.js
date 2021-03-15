@@ -4,10 +4,10 @@ import './styles.scss';
 import IndexLayout from './../layouts/IndexLayout';
 
 const ExploreIndex = () => {
-    return (
-        <IndexLayout title="Explore">
-        </IndexLayout>
-        
-    )
-}
+	return (
+		<IndexLayout title="Explore">
+		</IndexLayout>
+	);
+};
+
 export default ExploreIndex

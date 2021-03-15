@@ -1,29 +1,48 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import styled from 'styled-components';
 
-import './styles.scss';
 import Review from './../Reviews/Review';
 
-const ReviewsPreview = (props) => {
-    const { edges } = props;
-    
-    return (
-        <section className="reviewsPreview">
-            <div className="previewWrap">
-                <div className="reviews">
-                    {edges.map((edge, pos) => {
-                        const configReview = {
-                            ...edge.node
-                        };
+const Container = styled.div`
+	height: 100vh;
+  width: 100%;
+  background-color: rgb(98, 56, 128);
+`;
 
-                        return (
-                            <Review key={pos} {...configReview} />
-                        )
-                    })};
-                </div>
-            </div>
-        </section>
-    )
+const Wrap = styled.div`
+	width: calc(100vw - 95px);
+  float: right;
+`;
+
+const Reviews = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 0px;
+	margin: 0 auto;
+	box-sizing: border-box;
+`;
+
+const ReviewsPreview = (props) => {
+	const { edges } = props;
+	
+	return (
+		<Container>
+			<Wrap>
+				<Reviews>
+					{edges.map((edge, pos) => {
+						const configReview = {
+							...edge.node
+						};
+
+						return (
+							<Review key={pos} {...configReview} />
+						)
+					})}
+				</Reviews>
+			</Wrap>
+		</Container>
+	)
 };
 
 export default ReviewsPreview;
