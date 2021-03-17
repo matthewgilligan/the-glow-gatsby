@@ -7,9 +7,9 @@ const GuidesPage = (props) => {
 	const { guides } = props.data;
 
 	return (
-		<IndexLayout title="Guides">
+		<div>
 			<Guides {...guides} />
-		</IndexLayout>
+		</div>
 	);
 };
 
@@ -20,12 +20,18 @@ export const query = graphql`
 				node {
 					subject
 					slug
+					genre {
+						name
+					}
 					publishedDate(formatString:"MMMM Do YYYY")
 					coverImage {
 						file {
 							url
 						}
 						title
+						fluid {
+							...GatsbyContentfulFluid
+						}
 					}
 				}
 			}
