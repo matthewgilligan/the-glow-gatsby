@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import HorizontalScroll from 'react-scroll-horizontal'
 
 import Guide from './card.js';

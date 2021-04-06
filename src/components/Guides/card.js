@@ -7,13 +7,26 @@ const Container = styled.div`
 	position: relative;
 	height: 100vh;
 	width: 575px;
-	background-color: red;
-	h1{
-		color: black;
+	background-color: black;
+`;
+
+const ImageWrap = styled.div`
+	opacity: 1;
+	transform: none;
+
+	img {
+		position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    opacity: 0;
 	}
 `;
 
-const InnerCard = styled.div`
+const Details = styled.div`
 	position: absolute;
 	bottom: 0;
 	left: 50%;
@@ -29,8 +42,14 @@ const InnerCard = styled.div`
 	border-radius: 50px 50px 0 0;
 	color: white;
 	font-family: "Lexend Tera";
+	&:hover {
+		transition: transform 3s ease;
+		background-color: none;
+		backdrop-filter: none;
+	}
 	p {
-		text-transform: lowercase;
+		background-color: none;
+		backdrop-filter: none;
 	}
 	h1 {
 		color: white;
@@ -40,26 +59,29 @@ const InnerCard = styled.div`
 
 const imgStyle = {
 	height: "100vh",
+	overflow: "hidden"
 }
 
 const Guide = ({ node }) => {
 	const { subject, slug, genre, publishedDate, coverImage } = node;
 
 	return (
-		<Link to={`/guides/${slug}`}>
-			<Container>
-				<Img
+		<Container>
+			<Link to={`/guides/${slug}`}>
+				<ImageWrap>
+					<Img
 						fluid={coverImage.fluid}
 						key={coverImage.fluid.src}
 						alt={coverImage.title}
 						style={imgStyle}>
-				</Img>
-				<InnerCard>
+					</Img>
+				</ImageWrap>
+				<Details>
 					<p>{genre.name}</p>
 					<h1>A Brief Guide to {subject}</h1>
-				</InnerCard>
-			</Container>
-		</Link>
+				</Details>
+			</Link>
+		</Container>
 	)
 };
 

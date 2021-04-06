@@ -64,6 +64,16 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-source-strapi',
+      options: {
+        apiURL: 'http://localhost:1337',
+        contentTypes: [
+          'artists'
+        ],
+        queryLimit: 1000,
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'src',
