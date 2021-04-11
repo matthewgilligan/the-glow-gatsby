@@ -7,34 +7,26 @@ import Album from './Album';
 const Albums = () => {
     const data = useStaticQuery(graphql`
         query {
-            allContentfulReview ( sort: { fields:publishedDate, order:DESC } ) {
+            allStrapiAlbums {
                 edges {
                     node {
-                        albumTitle
-                        slug
-                        artist {
+                        title
+                        artists {
                             englishName
                         }
                         genre {
                             name
                         }
-                        albumCover {
-                            fluid {
-                                ...GatsbyContentfulFluid
-                            }
-                            title
-                            file {
-                                url
-                            }
+                        cover {
+                            url
                         }
-                        initialReleaseDate(formatString:"MMMM DD YYYY")
                     }
                 }
             }
         }
     `);
 
-    const albums = data.allContentfulReview.edges;
+    const albums = data.allStrapiAlbums.edges;
 
     if (!Array.isArray(albums)) return null;
 
