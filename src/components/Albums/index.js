@@ -7,7 +7,39 @@ import Album from './Album';
 const Albums = () => {
     const data = useStaticQuery(graphql`
         query {
-            allStrapiAlbums {
+            pop: allStrapiAlbums ( filter: { genre:{ name: { eq: "Pop" } } } ) {
+                edges {
+                    node {
+                        title
+                        artists {
+                            englishName
+                        }
+                        genre {
+                            name
+                        }
+                        cover {
+                            url
+                        }
+                    }
+                }
+            }
+            rock: allStrapiAlbums ( filter: { genre:{ name: { eq: "Rock" } } } ) {
+                edges {
+                    node {
+                        title
+                        artists {
+                            englishName
+                        }
+                        genre {
+                            name
+                        }
+                        cover {
+                            url
+                        }
+                    }
+                }
+            }
+            hiphop: allStrapiAlbums ( filter: { genre:{ name: { eq: "Hip-Hop" } } } ) {
                 edges {
                     node {
                         title
@@ -26,7 +58,7 @@ const Albums = () => {
         }
     `);
 
-    const albums = data.allStrapiAlbums.edges;
+    const albums = data.hiphop.edges;
 
     if (!Array.isArray(albums)) return null;
 
