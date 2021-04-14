@@ -5,11 +5,16 @@ import IndexLayout from './../layouts/IndexLayout';
 import Albums from './../components/Albums';
 
 const NewMusicIndex = ({ data }) => {
-  const { pop, rock, hiphop } = data;
+  const genres = Object.entries(data);
+  console.log(genres)
 
 	return (
 		<IndexLayout title="New Music">
-			<Albums {...pop} />
+      {genres.map((genre, pos) => {
+        return (
+          <Albums key={pos} {...genre} />
+        )
+      })}
 		</IndexLayout>  
 	);
 };

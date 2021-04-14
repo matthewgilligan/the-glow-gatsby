@@ -1,10 +1,11 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 
 import './styles.scss';
 import Album from './Album';
 
-const Albums = ({ edges }) => {
+const Albums = (props) => {
+  const { edges } = props[1];
+
   if (!Array.isArray(edges)) return null;
 
   if (edges.length < 1) {
@@ -20,12 +21,8 @@ const Albums = ({ edges }) => {
   return (
     <div className="albums">
       {edges.map((edge, pos) => {
-        const configAlbum = {
-          ...edge.node
-        };
-
         return (
-          <Album key={pos} {...configAlbum} />
+          <Album key={pos} {...edge.node} />
         )
       })}
     </div>
