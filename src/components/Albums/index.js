@@ -21,13 +21,15 @@ const Albums = (props) => {
   };
 
   return (
-    <div className="albums">
+    <div>
       <h1>{genre.name}</h1>
-      {edges.map((edge, pos) => {
-        return (
-          <Album key={pos} {...edge.node} />
-        )
-      })}
+      <div className="albums">
+        {edges.map((edge, pos) => {
+          return (
+            <Album key={pos} {...edge.node} />
+          )
+        })}
+      </div>
     </div>
   )
 };

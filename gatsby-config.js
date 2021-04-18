@@ -68,7 +68,7 @@ module.exports = {
       options: {
         apiURL: 'http://localhost:1337',
         contentTypes: [
-          'artists', 'albums', 'genres'
+          'artists', 'authors', 'albums', 'genres', 'features'
         ],
         queryLimit: 1000,
       },

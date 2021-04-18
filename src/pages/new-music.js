@@ -6,7 +6,6 @@ import Albums from './../components/Albums';
 
 const NewMusicIndex = ({ data }) => {
   const genres = Object.entries(data);
-  console.log(genres)
 
 	return (
 		<IndexLayout title="New Music">

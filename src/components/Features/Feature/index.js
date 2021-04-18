@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
-const Feature = props => {
-    const { title, subtitle, slug, author, publishedDate, 
-        category, genre, coverImage } = props;
+const Feature = ({ node }) => {
+    const { title, author, artist, publishedDate } = node;
+
+    console.log(node);
 
     return (
         <div className="feature">
-            <div className="imageWrapper">
+            {/* <div className="imageWrapper">
                 <Link to={`./${slug}`}>
                     <Img
                         fluid={coverImage.fluid}
@@ -17,11 +18,11 @@ const Feature = props => {
                         className="image">
                     </Img>
                 </Link>
-            </div>
+            </div> */}
             <div className="details">
                 <div className="credit">
                     <p className="type">Feature <span>|</span></p>
-                    <p className="author">{author[0].englishName}</p>
+                    {/* <p className="author">{author[0].englishName}</p> */}
                 </div>
                 <h2 className="title">
                     {title}
