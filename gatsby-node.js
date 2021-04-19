@@ -16,7 +16,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
 					}
 				}
 			}
-			allContentfulGuide {
+			allStrapiArtists {
 				edges {
 					node {
 						slug
@@ -50,10 +50,10 @@ module.exports.createPages = async ({ graphql, actions }) => {
 		})
 	})
 
-	res.data.allContentfulGuide.edges.forEach((edge) => {
+	res.data.allStrapiArtists.edges.forEach((edge) => {
 		createPage({
 			component: guideTemplate,
-			path: `/guides/${edge.node.slug}`,
+			path: `/artists/${edge.node.slug}`,
 			context: {
 				slug: edge.node.slug
 			}

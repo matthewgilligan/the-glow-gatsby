@@ -4,19 +4,19 @@ import { graphql } from 'gatsby';
 import MainLayout from './../../layouts/MainLayout';
 
 const GuideTemplate = (props) => {
-    const { title } = props.data.contentfulGuide;
+    const { englishName } = props.data.strapiArtists;
 
     return (
         <MainLayout>
-            <h1>{title}</h1>
+            <h1>{englishName}</h1>
         </MainLayout>
     )
 };
 
 export const query = graphql`
     query($slug: String!){
-        contentfulGuide (slug: { eq: $slug }) {
-            title
+        strapiArtists (slug: { eq: $slug }) {
+            englishName
         }
     }
 `
