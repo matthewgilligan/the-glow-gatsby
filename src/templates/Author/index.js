@@ -1,17 +1,29 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { graphql } from 'gatsby';
 
 import './styles.scss';
 import MainLayout from './../../layouts/MainLayout';
-import RichText from './../../components/RichText';
 
-const AuthorTemplate = () => {
+const AuthorTemplate = ({ data }) => {
+  const { englishName, japaneseName } = data.strapiAuthors;
+
+  console.log(data);
+
   return (
     <MainLayout>
-      <h1>wagz</h1>
+      <h1>{englishName}</h1>
+      {japaneseName && <h2>{japaneseName}</h2>}
     </MainLayout>
   )
 };
+
+export const query = graphql`
+  query($slug: String!){
+    strapiAuthors (slug: { eq: $slug }) {
+      englishName
+      japaneseName
+    }
+  }
+`;
 
 export default AuthorTemplate;
