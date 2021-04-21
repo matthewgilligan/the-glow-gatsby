@@ -5,7 +5,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
 	const featureTemplate = path.resolve('./src/templates/Feature/index.js')
 	const artistTemplate = path.resolve('./src/templates/Artist/index.js')
-	const reviewTemplate = path.resolve('./src/templates/Review/index.js')
+	const authorTemplate = path.resolve('./src/templates/Author/index.js')
 
 	const res = await graphql(`
 		query {
@@ -17,6 +17,13 @@ module.exports.createPages = async ({ graphql, actions }) => {
 				}
 			}
 			allStrapiArtists {
+				edges {
+					node {
+						slug
+					}
+				}
+      }
+      allStrapiAuthors {
 				edges {
 					node {
 						slug
@@ -53,7 +60,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
 	res.data.allStrapiArtists.edges.forEach((edge) => {
 		createPage({
 			component: artistTemplate,
-			path: `/artists/${edge.node.slug}`,
+			path: `/artist/${edge.node.slug}`,
 			context: {
 				slug: edge.node.slug
 			}
@@ -70,10 +77,10 @@ module.exports.createPages = async ({ graphql, actions }) => {
 		})
 	})
 
-	res.data.allContentfulReview.edges.forEach((edge) => {
+	res.data.allStrapiAuthors.edges.forEach((edge) => {
 		createPage({
-			component: reviewTemplate,
-			path: `/reviews/${edge.node.slug}`,
+			component: authorTemplate,
+			path: `/author/${edge.node.slug}`,
 			context: {
 				slug: edge.node.slug
 			}
