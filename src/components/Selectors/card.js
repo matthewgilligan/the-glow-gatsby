@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
-const Playlist = ({ node }) => {
-  const { title } = node;
+const Selector = ({ node }) => {
+  console.log(node);
+  const { artists } = node;
 
   return (
     <div className="playlist">
-      <h1>{title}</h1>
+      <h1>{artists[0].englishName}</h1>
       {/* <div className="imageWrapper">
         <Link to={`./${slug}`}>
           <Img
@@ -25,4 +26,4 @@ const Playlist = ({ node }) => {
   )
 };
 
-export default Playlist;
+export default Selector;

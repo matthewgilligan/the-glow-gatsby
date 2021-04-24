@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import './styles.scss';
-import Playlist from './Playlist';
+import Selector from './card.js';
 
 const Selectors = (props) => {
   const { edges } = props.allStrapiFeatures;
@@ -23,9 +23,9 @@ const Selectors = (props) => {
     <div className="playlists">
       {edges.map((edge, pos) => {
         return (
-          <Playlist key={pos} {...edge} />
+          <Selector key={pos} {...edge} />
         )
-      })};
+      })}
     </div>
   )
 };

@@ -17,7 +17,9 @@ export const query = graphql`
     allStrapiFeatures ( filter: { subcategory: { name: { eq: "Selector" } } } ) {
       edges {
         node {
-          title
+          artists {
+            englishName
+          }
         }
       }
     }
