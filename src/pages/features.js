@@ -18,6 +18,7 @@ export const query = graphql`
       edges {
         node {
           title
+          publishedDate(formatString:"MMMM Do YYYY")
           artists {
             englishName
           }
