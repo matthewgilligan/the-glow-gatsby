@@ -46,7 +46,7 @@ const Header = () => {
 					<Link className="navItem" to="/explore">Explore</Link>
 				</ListItem>
 				<ListItem>
-					<Link className="navItem" to="/interviews">Interviews</Link>
+					<Link className="navItem" to="/selector">Selector</Link>
 				</ListItem>
 				<ListItem>
 					<Link className="navItem" to="/features">Features</Link>
