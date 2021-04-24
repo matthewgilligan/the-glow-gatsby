@@ -14,7 +14,7 @@ const FeaturesIndex = ({ data }) => {
 
 export const query = graphql`
   query {
-    allStrapiFeatures (sort: { fields: publishedDate, order: DESC }) {
+    allStrapiFeatures (sort: { fields: publishedDate, order: DESC }, filter: { subcategory: { name: { ne: "Selector" } } }) {
       edges {
         node {
           title
@@ -23,6 +23,9 @@ export const query = graphql`
           }
           authors {
             englishName
+          }
+          category {
+            name
           }
         }
       }

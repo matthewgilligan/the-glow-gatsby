@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
 const Feature = ({ node }) => {
-    const { title, author, artist, publishedDate } = node;
+    const { title, category } = node;
 
     console.log(node);
 
@@ -21,7 +21,7 @@ const Feature = ({ node }) => {
             </div> */}
             <div className="details">
                 <div className="credit">
-                    <p className="type">Feature <span>|</span></p>
+                    <p className="type">{category.name} <span>|</span></p>
                     {/* <p className="author">{author[0].englishName}</p> */}
                 </div>
                 <h2 className="title">

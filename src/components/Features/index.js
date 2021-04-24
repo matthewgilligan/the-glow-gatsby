@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './styles.scss';
-import Feature from './Feature';
+import Feature from './card.js';
 
 const Features = (props) => {
   const { edges } = props.allStrapiFeatures;
@@ -23,7 +23,7 @@ const Features = (props) => {
 				return (
 					<Feature key={pos} {...edge} />
 				)
-			})};
+			})}
 		</div>
 	)
 };
