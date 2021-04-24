@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
 const Feature = ({ node }) => {
-    const { title, category, publishedDate, authors } = node;
+    const { title, category, publishedDate, authors, coverImage } = node;
 
     let author = "";
     if (authors.length > 1) {
@@ -18,16 +18,17 @@ const Feature = ({ node }) => {
 
     return (
         <div className="feature">
-            {/* <div className="imageWrapper">
-                <Link to={`./${slug}`}>
+            <div className="imageWrapper">
+                {/* <Link to={`./${slug}`}>
                     <Img
                         fluid={coverImage.fluid}
                         key={coverImage.fluid.src}
                         alt={coverImage.title}
                         className="image">
                     </Img>
-                </Link>
-            </div> */}
+                </Link> */}
+                <img src={coverImage.publicURL} alt="" className="image" />
+            </div>
             <div className="details">
                 <div className="credit">
                     <p className="type"><strong>{category.name}</strong> <span>|</span>By {author}</p>

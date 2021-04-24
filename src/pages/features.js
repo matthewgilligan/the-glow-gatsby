@@ -28,6 +28,9 @@ export const query = graphql`
           category {
             name
           }
+          coverImage {
+            publicURL
+          }
         }
       }
     }
