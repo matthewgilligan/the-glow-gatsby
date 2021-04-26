@@ -7,36 +7,36 @@ import MainLayout from '../../layouts/MainLayout';
 import RichText from './../../components/RichText';
 
 const FeatureTemplate = (props) => {
-    const { title, coverImage, publishedDate, author, body } = props.data.contentfulFeature;
+  const { title, publishedDate, authors, artists } = props.data.strapiFeatures;
 
-    return (
-        <MainLayout>
-            <div className="featureTemplate">
-                <div className="banner">
-                    <Img
-                        fluid={coverImage.fluid}
-                        key={coverImage.fluid.src}
-                        alt={coverImage.title}
-                        className="coverImage">
-                    </Img>
-                    <div className="details">
-                        <div className="credit">
-                            <p className="date">{publishedDate}</p>
-                            <Link to="">
-                                <p className="author">{author[0].englishName}</p>
-                            </Link>
-                        </div>
-                        <h1 className="title">{title}</h1>
-                    </div>
-                </div>
-                <div className="articleContent">
-                    <div className="body">
-                        <RichText {...body.json} />
-                    </div>
-                </div>
+  return (
+    <MainLayout>
+      <div className="featureTemplate">
+        <div className="banner">
+          {/* <Img
+            fluid={coverImage.fluid}
+            key={coverImage.fluid.src}
+            alt={coverImage.title}
+            className="coverImage">
+          </Img> */}
+          <div className="details">
+            <div className="credit">
+              <p className="date">{publishedDate}</p>
+              {/* <Link to="">
+                <p className="author">{authors[0].englishName}</p>
+              </Link> */}
             </div>
-        </MainLayout>
-    )
+            <h1 className="title">{artists[0].englishName}</h1>
+          </div>
+        </div>
+        {/* <div className="articleContent">
+          <div className="body">
+            <RichText {...body.json} />
+          </div>
+        </div> */}
+      </div>
+    </MainLayout>
+  )
 };
 
 export const query = graphql`
@@ -45,6 +45,9 @@ export const query = graphql`
       title
       publishedDate(formatString:"MMMM D YYYY")
       authors {
+        englishName
+      }
+      artists {
         englishName
       }
     }
