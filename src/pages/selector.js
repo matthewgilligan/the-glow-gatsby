@@ -14,11 +14,14 @@ const SelectorIndex = ({ data }) => {
 
 export const query = graphql`
   query {
-    allStrapiFeatures ( filter: { subcategory: { name: { eq: "Selector" } } } ) {
+    allStrapiFeatures ( sort: { fields: publishedDate, order: DESC }, filter: { subcategory: { name: { eq: "Selector" } } } ) {
       edges {
         node {
           artists {
             englishName
+          }
+          coverImage {
+            publicURL
           }
         }
       }
