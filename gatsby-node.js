@@ -9,7 +9,14 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
 	const res = await graphql(`
 		query {
-			allContentfulFeature ( filter: { category:{ name: { ne: "Interviews" } } } ) {
+			features: allStrapiFeatures ( filter: { subcategory: { name: { ne: "Selector" } } } ) {
+				edges {
+					node {
+						slug
+					}
+				}
+      }
+      selector: allStrapiFeatures ( filter: { subcategory: { name: { eq: "Selector" } } } ) {
 				edges {
 					node {
 						slug
@@ -37,17 +44,10 @@ module.exports.createPages = async ({ graphql, actions }) => {
 					}
 				}
 			}
-			interviews: allContentfulFeature ( filter: { category:{ name: { eq: "Interviews" } } } ) {
-				edges {
-					node {
-						slug
-					}
-				}
-			}
 		}
 	`)
 
-	res.data.allContentfulFeature.edges.forEach((edge) => {
+	res.data.features.edges.forEach((edge) => {
 		createPage({
 			component: featureTemplate,
 			path: `/features/${edge.node.slug}`,
@@ -55,7 +55,17 @@ module.exports.createPages = async ({ graphql, actions }) => {
 				slug: edge.node.slug
 			}
 		})
-	})
+  });
+  
+  res.data.selector.edges.forEach((edge) => {
+		createPage({
+			component: featureTemplate,
+			path: `/selector/${edge.node.slug}`,
+			context: {
+				slug: edge.node.slug
+			}
+		})
+	});
 
 	res.data.allStrapiArtists.edges.forEach((edge) => {
 		createPage({
@@ -65,17 +75,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
 				slug: edge.node.slug
 			}
 		})
-	})
-
-	res.data.interviews.edges.forEach((edge) => {
-		createPage({
-			component: featureTemplate,
-			path: `/interviews/${edge.node.slug}`,
-			context: {
-				slug: edge.node.slug
-			}
-		})
-	})
+	});
 
 	res.data.allStrapiAuthors.edges.forEach((edge) => {
 		createPage({
@@ -85,5 +85,5 @@ module.exports.createPages = async ({ graphql, actions }) => {
 				slug: edge.node.slug
 			}
 		})
-	})
+	});
 }

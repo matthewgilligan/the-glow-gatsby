@@ -40,24 +40,15 @@ const FeatureTemplate = (props) => {
 };
 
 export const query = graphql`
-    query($slug: String!){
-        contentfulFeature (slug: { eq: $slug }) {
-            title
-            publishedDate(formatString:"MMMM D YYYY")
-            author {
-                englishName
-            }
-            body {
-                json
-            }
-            coverImage {
-                title
-                fluid {
-                  ...GatsbyContentfulFluid
-                }
-              }
-        }
+  query($slug: String!){
+    strapiFeatures (slug: { eq: $slug }) {
+      title
+      publishedDate(formatString:"MMMM D YYYY")
+      authors {
+        englishName
+      }
     }
+  }
 `
 
 export default FeatureTemplate;
