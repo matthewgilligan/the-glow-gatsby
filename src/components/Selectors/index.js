@@ -1,7 +1,15 @@
 import React from 'react';
+import styled from "styled-components";
 
-import './styles.scss';
 import Selector from './card.js';
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0px;
+  box-sizing: border-box;
+`;
 
 const Selectors = (props) => {
   const { edges } = props.allStrapiFeatures;
@@ -10,22 +18,22 @@ const Selectors = (props) => {
 
   if (edges.length < 1) {
     return (
-      <div className="products">
+      <Container>
         <p>
           Content is on the way - stay tuned!
         </p>
-      </div>
+      </Container>
     );
   };
 
   return (
-    <div className="playlists">
+    <Container>
       {edges.map((edge, pos) => {
         return (
           <Selector key={pos} {...edge} />
         )
       })}
-    </div>
+    </Container>
   )
 };
 
