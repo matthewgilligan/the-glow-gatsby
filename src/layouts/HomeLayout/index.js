@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import './../../styles/index.scss';
 import Footer from './../../components/Footer';
-import Header from './../../components/Header';
 import Navigation from './../../components/Navigation';
 
 const Container = styled.div`

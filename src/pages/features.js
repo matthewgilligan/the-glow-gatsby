@@ -5,8 +5,6 @@ import IndexLayout from './../layouts/IndexLayout';
 import { OriginalScheme } from './../helpers/navColors.js';
 import Features from './../components/Features';
 
-console.log(OriginalScheme)
-
 const FeaturesIndex = ({ data }) => {
 	return (
 		<IndexLayout title="Features" navColor={OriginalScheme}>
@@ -22,6 +20,7 @@ export const query = graphql`
         node {
           title
           publishedDate(formatString:"MMMM Do YYYY")
+          slug
           artists {
             englishName
           }
