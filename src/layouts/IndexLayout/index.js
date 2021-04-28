@@ -24,18 +24,16 @@ const PageTitle = styled.div`
 	}
 `;
 
-const IndexLayout = (props) => {
-	const {title} = props;
-
+const IndexLayout = ({ children, title, navColor }) => {
 	return (
 		<Container>
-			<Navigation />
+			<Navigation colorScheme={navColor} />
 			<Content>
 				<Header />
 				<PageTitle>
 					<h1>{title}</h1>
 				</PageTitle>
-				{props.children}
+				{children}
 			</Content>
 		</Container>
 	);

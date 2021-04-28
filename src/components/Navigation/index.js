@@ -3,7 +3,7 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
 
-import Logo from './../../images/white-glow-ray.png';
+import Logo from './../../images/the-glow-sun-S-Standard.svg';
 
 const Container = styled.div`
 	position: fixed;
@@ -13,7 +13,7 @@ const Container = styled.div`
 	height: 100%;
 	z-index: 999;
 	box-sizing: border-box;
-	border-right: 1px solid rgb(0, 0, 0);
+	border-right: 1px solid white;
 	background-color: transparent;
 	transition: background-color 1s ease 0s;
 	backdrop-filter: blur(30px);
@@ -30,7 +30,9 @@ const Search = styled.div`
 	color: white;
 `;
 
-const Navigation = () => {
+const Navigation = ({ colorScheme }) => {
+  const { hamburger, logo, border } = colorScheme;
+
 	const data = useStaticQuery(graphql`
 		query {
 			site {
@@ -48,12 +50,12 @@ const Navigation = () => {
 		instagramUsername } = data.site.siteMetadata;
 
 	return (
-		<Container>
+		<Container style={{borderRight: border}}>
 			<Search>
-				<FiSearch role="button" href="#" />
+				<FiSearch role="button" href="#" style={{ width: '45px', color: hamburger }}/>
 			</Search>
 			<Link to="/" >
-				<img src={Logo} alt="Logo" style={{ width: '45px' }}/>
+				<img src={Logo} alt="Logo" style={{ width: '45px', fill: logo }}/>
 			</Link>
 		</Container>
 	)
