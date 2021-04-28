@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
 
 import Logo from './../../images/the-glow-sun-S-Standard.svg';
+import { LightScheme } from './../../helpers/navColors.js';
 
 const Container = styled.div`
 	position: fixed;
@@ -31,31 +32,18 @@ const Search = styled.div`
 `;
 
 const Navigation = ({ colorScheme }) => {
-  const { hamburger, logo, border } = colorScheme;
-
-	const data = useStaticQuery(graphql`
-		query {
-			site {
-				siteMetadata {
-					siteTitle
-					twitterUsername
-					facebookUsername
-					instagramUsername
-				}
-			}
-		}
-	`)
-
-	const { siteTitle, twitterUsername, facebookUsername, 
-		instagramUsername } = data.site.siteMetadata;
+  console.log(colorScheme);
+  const hamburger = (colorScheme != undefined) ? colorScheme.hamburger : LightScheme.hamburger;
+  const logo = (colorScheme != undefined) ? colorScheme.logo : LightScheme.logo;
+  const border = (colorScheme != undefined) ? colorScheme.border : LightScheme.border;
 
 	return (
-		<Container style={{borderRight: border}}>
+		<Container style={{ borderRight: border }}>
 			<Search>
 				<FiSearch role="button" href="#" style={{ width: '45px', color: hamburger }}/>
 			</Search>
 			<Link to="/" >
-				<img src={Logo} alt="Logo" style={{ width: '45px', fill: logo }}/>
+				<img src={Logo} alt="Logo" style={{ width: '45px', filter: logo }}/>
 			</Link>
 		</Container>
 	)
