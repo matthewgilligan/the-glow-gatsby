@@ -25,6 +25,19 @@ const Container = styled.div`
 	justify-content: space-between;
 	-webkit-box-align: center;
 	align-items: center;
+  h1 {
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    color: white;
+    width: 200px;
+    font-family: 'Lexend Tera';
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight:normal;
+  }
 `;
 
 const Search = styled.div`
@@ -42,6 +55,7 @@ const Navigation = ({ colorScheme }) => {
 			<Search>
 				<FiSearch role="button" href="#" style={{ width: '45px', color: hamburger }}/>
 			</Search>
+      <h1 style={{ color: hamburger }}>The Glow</h1>
 			<Link to="/" >
 				<img src={Logo} alt="Logo" style={{ width: '45px', filter: logo }}/>
 			</Link>
