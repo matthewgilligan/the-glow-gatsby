@@ -6,7 +6,7 @@ import Selectors from '../components/Selectors';
 
 const SelectorIndex = ({ data }) => {
 	return (
-		<IndexLayout title="Interviews">
+		<IndexLayout title="Interviews" backgroundColor='black'>
 			<Selectors {...data} />
 		</IndexLayout>   
 	);

@@ -7,12 +7,16 @@ import Header from './../../components/Header';
 import Navigation from './../../components/Navigation';
 
 const Container = styled.div`
-	width: calc(100vw - 95px);
-	float: right;
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
 `;
 
 const Content = styled.div`
-	/* max-width: 1050px; */
+	width: calc(100vw - 80px);
+	float: right;
 	padding-left: 40px;
 `;
 
@@ -24,9 +28,9 @@ const PageTitle = styled.div`
 	}
 `;
 
-const IndexLayout = ({ children, title, navColor }) => {
+const IndexLayout = ({ children, title, navColor, backgroundColor }) => {
 	return (
-		<Container>
+		<Container style={{ backgroundColor: backgroundColor }}>
 			<Navigation colorScheme={navColor} />
 			<Content>
 				<Header />

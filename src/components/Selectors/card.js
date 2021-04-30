@@ -8,8 +8,14 @@ const Card = styled.div`
   margin-bottom: 50px;
   img {
     height: 300px;
-    width: 200px;
+    width: 100%;
     object-fit: cover;
+  }
+  h1 {
+    font-family: 'Lexend Tera';
+    text-transform: uppercase;
+    font-size: 20px;
+    color: white;
   }
 `;
 
