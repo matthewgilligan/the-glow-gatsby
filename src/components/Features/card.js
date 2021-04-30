@@ -44,7 +44,7 @@ const Info = styled.div`
 
 
 const Feature = ({ node }) => {
-  const { title, category, slug, publishedDate, authors, coverImage } = node;
+  const { title, category, slug, publishedDate, authors, artists, coverImage } = node;
 
   let author = "";
   if (authors.length > 1) {
@@ -68,7 +68,7 @@ const Feature = ({ node }) => {
           <p className="type"><strong>{category.name}</strong> <span>|</span>By {author}</p>
           {/* <p className="author">{author[0].englishName}</p> */}
         </Info>
-        <h2>{title}</h2>
+        <h2>{category.name === "Review" ? `Review: ${artists[0].englishName} - ${title}` : title}</h2>
       </TextWrap>
     </Container>
   )
