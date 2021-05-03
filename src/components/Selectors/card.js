@@ -3,24 +3,30 @@ import { Link } from 'gatsby';
 import styled from "styled-components";
 
 const Card = styled.div`
-  flex-basis: calc(25% - 30px);
   padding: 0 15px;
   margin-bottom: 50px;
   img {
-    height: 300px;
-    width: 100%;
+    height: 425px;
+    width: 300px;
     object-fit: cover;
   }
   h1 {
+    width: 300px;
     font-family: 'Lexend Tera';
     text-transform: uppercase;
     font-size: 20px;
     color: white;
   }
+  &:nth-of-type(2n) {
+    transform: translateX(50%);
+  }
+  &:nth-of-type(4n) {
+    transform: translateX(20%);
+  }
 `;
 
-const Selector = (props) => {
-  const { artists, coverImage, slug } = props.node;
+const SelectorCard = ({ node }) => {
+  const { artists, coverImage, slug } = node;
 
   return (
     <Card>
@@ -32,4 +38,4 @@ const Selector = (props) => {
   )
 };
 
-export default Selector;
+export default SelectorCard;

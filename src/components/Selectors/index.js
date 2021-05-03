@@ -1,18 +1,35 @@
 import React from 'react';
 import styled from "styled-components";
 
-import Selector from './card.js';
+import LatestSelector from './latest.js';
+import SelectorCard from './card.js';
 
 const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
   width: 100%;
   padding: 0px;
   box-sizing: border-box;
 `;
 
+const PageTitle = styled.div`
+  color: white;
+  text-align: center;
+  margin-bottom: 100px;
+  h1 {
+		font-size: 12rem;
+    font-weight: normal;
+		text-transform: uppercase;
+    font-family: 'Lexend Tera';
+    margin-bottom: 30px;
+	}
+  p {
+    width: 500px;
+    margin: 0 auto;
+  }
+`;
+
 const Selectors = (props) => {
   const { edges } = props.allStrapiFeatures;
+  const latest= edges.shift();
   
   if (!Array.isArray(edges)) return null;
 
@@ -28,9 +45,14 @@ const Selectors = (props) => {
 
   return (
     <Container>
+      <PageTitle>
+        <h1>Selector</h1>
+        <p>Your favourite artists select some of the tracks that helped shape their career.</p>
+      </PageTitle>
+      <LatestSelector {...latest} />
       {edges.map((edge, pos) => {
         return (
-          <Selector key={pos} {...edge} />
+          <SelectorCard key={pos} {...edge} />
         )
       })}
     </Container>
