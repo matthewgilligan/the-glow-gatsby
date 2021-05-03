@@ -5,24 +5,25 @@ import styled from "styled-components";
 const Card = styled.div`
   padding: 0 15px;
   margin-bottom: 50px;
+  transform: translateX(15%);
   img {
-    height: 425px;
-    width: 300px;
+    height: 350px;
+    width: 250px;
     object-fit: cover;
   }
   h1 {
-    width: 300px;
+    width: 250px;
     font-family: 'Lexend Tera';
     text-transform: uppercase;
     font-size: 20px;
     color: white;
   }
   &:nth-of-type(2n) {
-    transform: translateX(50%);
+    transform: translate(60%, -60%);
   }
-  &:nth-of-type(4n) {
+  /* &:nth-of-type(4n) {
     transform: translateX(20%);
-  }
+  } */
 `;
 
 const SelectorCard = ({ node }) => {
