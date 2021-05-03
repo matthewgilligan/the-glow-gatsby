@@ -47,14 +47,14 @@ const Container = styled.div`
 `;
 
 const Selectors = ({ node }) => {
-  const { artists, coverImage, slug } = node;
+  const { artists, coverImage, selectorID, slug } = node;
 
   return (
     <Container>
 
       <Link to={`${slug}`}>
       <p>#</p>
-      <p>23</p>
+      <p>{selectorID}</p>
         {coverImage && <img src={coverImage.publicURL} alt=""/>}
         <h2>{artists[0].englishName}</h2>
       </Link>

@@ -11,12 +11,16 @@ const Card = styled.div`
     width: 250px;
     object-fit: cover;
   }
-  h1 {
+  h2 {
     width: 250px;
     font-family: 'Lexend Tera';
     text-transform: uppercase;
     font-size: 20px;
     color: white;
+    span {
+      color: rgba(255, 255, 255, 0.3);
+      margin-right: 5px;
+    }
   }
   &:nth-of-type(2n) {
     transform: translate(60%, -60%);
@@ -27,13 +31,13 @@ const Card = styled.div`
 `;
 
 const SelectorCard = ({ node }) => {
-  const { artists, coverImage, slug } = node;
+  const { artists, coverImage, selectorID, slug } = node;
 
   return (
     <Card>
       <Link to={`${slug}`}>
         {coverImage && <img src={coverImage.publicURL} alt=""/>}
-        <h1>{artists[0].englishName}</h1>
+        <h2><span>#{selectorID}</span>{artists[0].englishName}</h2>
       </Link>
     </Card>
   )
