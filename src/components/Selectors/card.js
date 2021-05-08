@@ -25,9 +25,6 @@ const Card = styled.div`
   &:nth-of-type(2n) {
     transform: translate(60%, -60%);
   }
-  /* &:nth-of-type(4n) {
-    transform: translateX(20%);
-  } */
 `;
 
 const SelectorCard = ({ node }) => {

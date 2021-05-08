@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './styles.scss';
 import IndexLayout from './../layouts/IndexLayout';
 import { OriginalScheme } from './../helpers/navColors.js';
 import Features from './../components/Features';
