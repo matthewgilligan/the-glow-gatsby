@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import MainLayout from './../../layouts/MainLayout';
+import MainLayout from './../layouts/MainLayout';
 
 const ArtistTemplate = ({ data }) => {
   const { englishName, japaneseName } = data.strapiArtists;
