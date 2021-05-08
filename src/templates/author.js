@@ -1,18 +1,21 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import styled from 'styled-components';
 
-import './styles.scss';
-import MainLayout from './../../layouts/MainLayout';
+import MainLayout from './../layouts/MainLayout';
+
+const Container = styled.div`
+`;
 
 const AuthorTemplate = ({ data }) => {
   const { englishName, japaneseName } = data.strapiAuthors;
 
-  console.log(data);
-
   return (
     <MainLayout>
-      <h1>{englishName}</h1>
-      {japaneseName && <h2>{japaneseName}</h2>}
+      <Container>
+        <h1>{englishName}</h1>
+        {japaneseName && <h2>{japaneseName}</h2>}
+      </Container>
     </MainLayout>
   )
 };

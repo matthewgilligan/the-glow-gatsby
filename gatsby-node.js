@@ -5,7 +5,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
 	const featureTemplate = path.resolve('./src/templates/feature.js')
 	const artistTemplate = path.resolve('./src/templates/artist.js')
-	const authorTemplate = path.resolve('./src/templates/Author/index.js')
+	const authorTemplate = path.resolve('./src/templates/author.js')
 
 	const res = await graphql(`
 		query {
