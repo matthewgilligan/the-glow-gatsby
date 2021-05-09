@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
 
 import MainLayout from './../layouts/MainLayout';
 
@@ -48,8 +49,14 @@ const Credit = styled.div`
   }
 `;
 
+const Body = styled.div`
+  
+`;
+
 const FeatureTemplate = (props) => {
-  const { title, publishedDate, authors, artists } = props.data.strapiFeatures;
+  const { title, body, publishedDate, authors, artists } = props.data.strapiFeatures;
+
+  console.log(body);
 
   return (
     <MainLayout>
@@ -73,11 +80,12 @@ const FeatureTemplate = (props) => {
             <h1>{artists[0].englishName}</h1>
           </Details>
         </Banner>
-        {/* <div className="articleContent">
-          <div className="body">
-            <RichText {...body.json} />
-          </div>
-        </div> */}
+        <Body>
+          <ReactMarkdown 
+            children={body} 
+            transformImageUri={uri => uri.startsWith('http') ? uri : `${process.env.IMAGE_BASE_URL}${uri}`}
+          />
+        </Body>
       </Container>
     </MainLayout>
   )
@@ -87,6 +95,7 @@ export const query = graphql`
   query($slug: String!){
     strapiFeatures (slug: { eq: $slug }) {
       title
+      body
       publishedDate(formatString:"MMMM D YYYY")
       authors {
         englishName

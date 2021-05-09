@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 
 import IndexLayout from './../layouts/IndexLayout';
 import Albums from './../components/Albums';
