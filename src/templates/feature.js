@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import ReactMarkdown from 'react-markdown';
 
 import MainLayout from './../layouts/MainLayout';
+import TextBody from './../components/TextBody';
 
 const Container = styled.div`
   position: relative;
@@ -11,10 +11,10 @@ const Container = styled.div`
 `;
 
 const Banner = styled.div`
-  position: fixed;
+  /* position: fixed;
   top: 0;
   height: 100vh;
-  width: 100%;
+  width: 100%; */
 `;
 
 const ImgWrap = styled.div`
@@ -56,20 +56,18 @@ const Body = styled.div`
 const FeatureTemplate = (props) => {
   const { title, body, publishedDate, authors, artists } = props.data.strapiFeatures;
 
-  console.log(body);
-
   return (
     <MainLayout>
       <Container>
         <Banner>
-          <ImgWrap>
-            {/* <Img
+          {/* <ImgWrap>
+            <Img
               fluid={coverImage.fluid}
               key={coverImage.fluid.src}
               alt={coverImage.title}
               className="coverImage">
-            </Img> */}
-          </ImgWrap>
+            </Img>
+          </ImgWrap> */}
           <Details>
             <Credit>
               <p>{publishedDate}</p>
@@ -77,15 +75,10 @@ const FeatureTemplate = (props) => {
                 <p className="author">{authors[0].englishName}</p>
               </Link> */}
             </Credit>
-            <h1>{artists[0].englishName}</h1>
+            {/* <h1>{artists[0].englishName}</h1> */}
           </Details>
         </Banner>
-        <Body>
-          <ReactMarkdown 
-            children={body} 
-            transformImageUri={uri => uri.startsWith('http') ? uri : `${process.env.IMAGE_BASE_URL}${uri}`}
-          />
-        </Body>
+        <TextBody content={body} style={{zIndex:10000}} />
       </Container>
     </MainLayout>
   )
