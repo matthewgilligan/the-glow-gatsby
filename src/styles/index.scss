@@ -26,8 +26,20 @@ body {
   line-height: 1;
 }
 
+p {
+  font-weight: lighter;
+  line-height: 1.5;
+}
+
 a {
   text-decoration: none;
+  color: black;
+  text-decoration: underline;
+  text-decoration-color: #e7334d;
+}
+
+h3 {
+  margin: 70px 0 35px;
 }
 
 a,

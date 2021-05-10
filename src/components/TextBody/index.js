@@ -6,11 +6,13 @@ import rehypeRaw from 'rehype-raw'
 const Container = styled.div`
   z-index: 1000;
   width: 600px;
+  margin: 0 auto;
   img {
     width: 100%;
   }
   iframe {
     width: 100%;
+    margin-bottom: 20px;
   }
 `;
 
