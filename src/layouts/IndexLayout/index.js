@@ -17,7 +17,7 @@ const Container = styled.div`
 const Content = styled.div`
 	width: calc(100vw - 80px);
 	float: right;
-	padding-left: 40px;
+	padding: 40px 0;
 `;
 
 const PageTitle = styled.div`
