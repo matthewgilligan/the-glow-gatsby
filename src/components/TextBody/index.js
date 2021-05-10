@@ -7,6 +7,9 @@ const Container = styled.div`
   z-index: 1000;
   width: 600px;
   margin: 0 auto;
+  h4 {
+    transform: translateY(50px);
+  }
   img {
     width: 100%;
   }
