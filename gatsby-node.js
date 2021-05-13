@@ -2,8 +2,9 @@ const path = require('path')
 
 module.exports.createPages = async ({ graphql, actions }) => {
 	const { createPage } = actions
-
+  
 	const featureTemplate = path.resolve('./src/templates/feature.js')
+	const selectorTemplate = path.resolve('./src/templates/selector.js')
 	const artistTemplate = path.resolve('./src/templates/artist.js')
 	const authorTemplate = path.resolve('./src/templates/author.js')
 
@@ -59,7 +60,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   
   res.data.selector.edges.forEach((edge) => {
 		createPage({
-			component: featureTemplate,
+			component: selectorTemplate,
 			path: `/selector/${edge.node.slug}`,
 			context: {
 				slug: edge.node.slug
