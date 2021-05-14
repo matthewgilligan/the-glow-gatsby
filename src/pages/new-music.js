@@ -2,13 +2,14 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import IndexLayout from './../layouts/IndexLayout';
+import { OriginalScheme } from './../helpers/navColors.js';
 import Albums from './../components/Albums';
 
 const NewMusicIndex = ({ data }) => {
   const genres = Object.entries(data);
 
 	return (
-		<IndexLayout title="New Music">
+		<IndexLayout title="New Music" navColor={OriginalScheme}>
       {genres.map((genre, pos) => {
         return (
           <Albums key={pos} {...genre} />
