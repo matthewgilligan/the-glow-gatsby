@@ -17,15 +17,14 @@ const Container = styled.div`
 const Content = styled.div`
   width: calc(100vw - 80px);
 	float: right;
-	padding: 0 40px;
 `;
 
-const MainLayout = (props) => {
+const MainLayout = ({ children, navColor }) => {
 	return (
 		<Container>
-			<Navigation />
+			<Navigation colorScheme={navColor} />
 			<Content>
-				{props.children}
+				{children}
 			</Content>
 		</Container>
 	);

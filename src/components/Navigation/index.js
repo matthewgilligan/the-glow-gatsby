@@ -40,18 +40,29 @@ const Container = styled.div`
   }
 `;
 
+const BackgroundColor = styled.div`
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height:100%;
+  z-index:-1;
+`;
+
 const Search = styled.div`
 	color: white;
 `;
 
 const Navigation = ({ colorScheme }) => {
   console.log(colorScheme);
-  const hamburger = (colorScheme != undefined) ? colorScheme.hamburger : LightScheme.hamburger;
-  const logo = (colorScheme != undefined) ? colorScheme.logo : LightScheme.logo;
-  const border = (colorScheme != undefined) ? colorScheme.border : LightScheme.border;
+  const hamburger = colorScheme ? colorScheme.hamburger : LightScheme.hamburger;
+  const logo = colorScheme ? colorScheme.logo : LightScheme.logo;
+  const border = colorScheme ? colorScheme.border : LightScheme.border;
+  const background = (colorScheme && colorScheme.background) ? {backgroundColor: colorScheme.background} : {display: 'none'};
 
 	return (
 		<Container style={{ borderRight: border }}>
+      <BackgroundColor style={background} />
 			<Search>
 				<FiSearch role="button" href="#" style={{ width: '45px', color: hamburger }}/>
 			</Search>

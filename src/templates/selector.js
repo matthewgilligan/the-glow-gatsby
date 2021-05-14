@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import MainLayout from './../layouts/MainLayout';
+import { DarkScheme } from './../helpers/navColors.js';
 import TextBody from './../components/TextBody';
 
 const Container = styled.div`
@@ -17,21 +18,6 @@ const Banner = styled.div`
   color: white;
   text-align: center;
   margin-bottom: 150px;
-  h2 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    font-family: 'Lexend Tera';
-    margin: 0;
-    padding: 0;
-    font-size: 160px;
-    text-transform: uppercase;
-    color: transparent;
-    -webkit-text-stroke: 1px gray;
-    transform: translateY(76px);
-  }
 `;
 
 const BannerTextWrap = styled.div`
@@ -50,9 +36,39 @@ const BannerTextWrap = styled.div`
   }
 `;
 
+const BannerImg = styled.div`
+  position: absolute;
+  bottom: 0;
+`;
+
 const BannerImgWrap = styled.div`
-  
-  
+  position: relative;
+  background-color: pink;
+  height: 400px;
+  opacity: 0.5;
+  h2 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-family: 'Lexend Tera';
+    margin: 0;
+    padding: 0;
+    font-size: 160px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px gray;
+  }
+  img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 50%;
+    /* transform: translateY(200px); */
+  }
 `;
 
 const Body = styled.div`
@@ -60,17 +76,22 @@ const Body = styled.div`
 `;
 
 const SelectorTemplate = (props) => {
-  const { title, body, publishedDate, authors, artists } = props.data.strapiFeatures;
+  const { title, body, coverImage, publishedDate, authors, artists } = props.data.strapiFeatures;
 
   return (
-    <MainLayout>
+    <MainLayout navColor={DarkScheme}>
       <Container>
         <Banner>
           <BannerTextWrap>
             <h1>{artists[0].englishName}</h1>
             <p>{publishedDate}</p>
           </BannerTextWrap>
-          <h2>Selector</h2>
+          <BannerImg>
+            <BannerImgWrap>
+              <img src={coverImage.publicURL} alt=""/>
+              <h2>Selector</h2>
+            </BannerImgWrap>
+          </BannerImg>
         </Banner>
         <TextBody content={body} />
       </Container>
@@ -89,6 +110,9 @@ export const query = graphql`
       }
       artists {
         englishName
+      }
+      coverImage {
+        publicURL
       }
     }
   }
