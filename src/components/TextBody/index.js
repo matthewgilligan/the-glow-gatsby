@@ -5,6 +5,19 @@ import rehypeRaw from 'rehype-raw'
 
 const Container = styled.div`
   z-index: 1000;
+`;
+
+const Subtitle = styled.div`
+  width: 775px;
+  margin: 0 auto 50px;
+  p {
+    font-weight: bolder;
+    font-size: 18px;
+    font-weight: 600;
+  }
+`;
+
+const Body = styled.div`
   width: 600px;
   margin: 0 auto;
   h4 {
@@ -19,16 +32,25 @@ const Container = styled.div`
   }
 `;
 
-const TextBody = ({content}) => {
-  console.log(content);
+const TextBody = ({ body, subtitle }) => {
   return (
     <Container>
-      <ReactMarkdown 
-        children={content}
-        linkTarget="_blank"
-        rehypePlugins={[rehypeRaw]}
-        transformImageUri={uri => uri.startsWith('http') ? uri : `${process.env.IMAGE_BASE_URL}${uri}`}
-      />
+      <Subtitle>
+        <ReactMarkdown 
+          children={subtitle}
+          linkTarget="_blank"
+          rehypePlugins={[rehypeRaw]}
+          transformImageUri={uri => uri.startsWith('http') ? uri : `${process.env.IMAGE_BASE_URL}${uri}`}
+        />
+      </Subtitle>
+      <Body>
+        <ReactMarkdown 
+          children={body}
+          linkTarget="_blank"
+          rehypePlugins={[rehypeRaw]}
+          transformImageUri={uri => uri.startsWith('http') ? uri : `${process.env.IMAGE_BASE_URL}${uri}`}
+        />
+      </Body>
     </Container>
   )
 };

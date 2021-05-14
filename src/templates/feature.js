@@ -78,7 +78,7 @@ const FeatureTemplate = (props) => {
             {/* <h1>{artists[0].englishName}</h1> */}
           </Details>
         </Banner>
-        <TextBody content={body} style={{zIndex:10000}} />
+        <TextBody body={body} style={{zIndex:10000}} />
       </Container>
     </MainLayout>
   )

@@ -14,24 +14,25 @@ const Container = styled.div`
 const Banner = styled.div`
   position: relative;
   background-color: black;
-  height: 65vh;
+  height: 63vh;
   color: white;
   text-align: center;
-  margin-bottom: 300px;
+  margin-bottom: 280px;
 `;
 
 const BannerTextWrap = styled.div`
   position: relative;
   width: 50%;
   margin: 0 auto;
-  padding-top: 100px;
+  padding-top: 80px;
 
   h1 {
     font-size: 50px;
+    margin-bottom: 10px;
   }
   p {
     font-family: 'Lexend Tera';
-    font-size: 12px;
+    font-size: 16px;
     text-transform: uppercase;
   }
 `;
@@ -73,7 +74,7 @@ const BannerImgWrap = styled.div`
     height: 400px;
     object-fit: cover;
     border-radius: 50%;
-    /* transform: translateY(200px); */
+    z-index: 100;
   }
 `;
 
@@ -82,7 +83,7 @@ const Body = styled.div`
 `;
 
 const SelectorTemplate = (props) => {
-  const { title, body, coverImage, publishedDate, authors, artists } = props.data.strapiFeatures;
+  const { title, body, subtitle, coverImage, publishedDate, authors, artists } = props.data.strapiFeatures;
 
   return (
     <MainLayout navColor={DarkScheme}>
@@ -99,7 +100,7 @@ const SelectorTemplate = (props) => {
             </BannerImgWrap>
           </BannerImg>
         </Banner>
-        <TextBody content={body} />
+        <TextBody body={body} subtitle={subtitle} />
       </Container>
     </MainLayout>
   )
@@ -110,6 +111,7 @@ export const query = graphql`
     strapiFeatures (slug: { eq: $slug }) {
       title
       body
+      subtitle
       publishedDate(formatString:"MMMM D YYYY")
       authors {
         englishName
