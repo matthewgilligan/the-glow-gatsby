@@ -14,10 +14,10 @@ const Container = styled.div`
 const Banner = styled.div`
   position: relative;
   background-color: black;
-  height: 70vh;
+  height: 65vh;
   color: white;
   text-align: center;
-  margin-bottom: 150px;
+  margin-bottom: 300px;
 `;
 
 const BannerTextWrap = styled.div`
@@ -39,13 +39,14 @@ const BannerTextWrap = styled.div`
 const BannerImg = styled.div`
   position: absolute;
   bottom: 0;
+  width: 100%;
+  transform: translateY(200px);
 `;
 
 const BannerImgWrap = styled.div`
   position: relative;
-  background-color: pink;
   height: 400px;
-  opacity: 0.5;
+  width: 100%;
   h2 {
     margin: 0;
     position: absolute;
@@ -63,6 +64,11 @@ const BannerImgWrap = styled.div`
     -webkit-text-stroke: 1px gray;
   }
   img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     width: 400px;
     height: 400px;
     object-fit: cover;
