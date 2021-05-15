@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import formatAuthor from './../../helpers/formatAuthor';
 
 const Container = styled.div`
   flex-basis: calc(33.3333% - 30px);
@@ -46,19 +47,11 @@ const Info = styled.div`
 const Feature = ({ node }) => {
   const { title, category, slug, publishedDate, authors, artists, coverImage } = node;
 
-  let authorsFormatted = "";
-  if (authors.length > 1) {
-    authorsFormatted = `${authors[0].englishName} & ${authors[1].englishName}`
-  } else if (authors.length > 0) {
-    authorsFormatted = authors[0].englishName
-  } else {
-    authorsFormatted = "The Glow"
+  let author = formatAuthor(authors);
+  
+  if (author.length > 23) {
+    author = `${author.substring(0,23)}...`;
   };
-
-  if (authorsFormatted.length > 23) {
-    authorsFormatted = `${authorsFormatted.substring(0,23)}...`;
-  }
-
 
   return (
     <Container>
@@ -69,7 +62,7 @@ const Feature = ({ node }) => {
       </ImgWrap>
       <TextWrap>
         <Info>
-          <p className="type"><strong>{category.name}</strong> <span>|</span>By {authorsFormatted}</p>
+          <p className="type"><strong>{category.name}</strong> <span>|</span>By {author}</p>
           {/* <p className="author">{author[0].englishName}</p> */}
         </Info>
         <h2>{category.name === "Review" ? `Review: ${artists[0].englishName} - ${title}` : title}</h2>

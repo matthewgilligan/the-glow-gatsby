@@ -78,12 +78,8 @@ const BannerImgWrap = styled.div`
   }
 `;
 
-const Body = styled.div`
-  
-`;
-
 const SelectorTemplate = (props) => {
-  const { title, body, subtitle, coverImage, publishedDate, authors, artists } = props.data.strapiFeatures;
+  const { body, subtitle, coverImage, publishedDate, artists } = props.data.strapiFeatures;
 
   return (
     <MainLayout navColor={DarkScheme}>

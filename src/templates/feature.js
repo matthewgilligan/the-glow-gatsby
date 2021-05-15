@@ -1,8 +1,9 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
+import formatAuthor from './../helpers/formatAuthor';
 
-import MainLayout from './../layouts/MainLayout';
+import FeatureLayout from './../layouts/FeatureLayout';
 import TextBody from './../components/TextBody';
 
 const Container = styled.div`
@@ -11,10 +12,16 @@ const Container = styled.div`
 `;
 
 const Banner = styled.div`
-  /* position: fixed;
+  position: fixed;
   top: 0;
   height: 100vh;
-  width: 100%; */
+  width: 100%;
+  z-index: -1;
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const ImgWrap = styled.div`
@@ -50,37 +57,38 @@ const Credit = styled.div`
 `;
 
 const Body = styled.div`
-  
+  width: calc(100vw - 80px);
+  background-color: white;
+  float: right;
+  transform: translateY(100vh);
 `;
 
 const FeatureTemplate = (props) => {
-  const { title, body, publishedDate, authors, artists } = props.data.strapiFeatures;
+  const { title, body, coverImage, publishedDate, authors, artists } = props.data.strapiFeatures;
+
+  const author = formatAuthor(authors);
 
   return (
-    <MainLayout>
+    <FeatureLayout>
       <Container>
         <Banner>
-          {/* <ImgWrap>
-            <Img
-              fluid={coverImage.fluid}
-              key={coverImage.fluid.src}
-              alt={coverImage.title}
-              className="coverImage">
-            </Img>
-          </ImgWrap> */}
+          <img src={coverImage.publicURL} alt=""/>
           <Details>
+            <h1>{title}</h1>
             <Credit>
               <p>{publishedDate}</p>
-              {/* <Link to="">
-                <p className="author">{authors[0].englishName}</p>
-              </Link> */}
+              <Link to="">
+                <p className="author">{author}</p>
+              </Link>
             </Credit>
             {/* <h1>{artists[0].englishName}</h1> */}
           </Details>
         </Banner>
-        <TextBody body={body} style={{zIndex:10000}} />
+        <Body>
+          <TextBody body={body} style={{zIndex:10000}} />
+        </Body>
       </Container>
-    </MainLayout>
+    </FeatureLayout>
   )
 };
 
@@ -95,6 +103,9 @@ export const query = graphql`
       }
       artists {
         englishName
+      }
+      coverImage {
+        publicURL
       }
     }
   }
