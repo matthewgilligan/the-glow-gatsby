@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
-import rehypeRaw from 'rehype-raw'
+import rehypeRaw from 'rehype-raw';
+import { formatArtistTags, formatAuthor } from './../../helpers/formatLists';
 
 const Container = styled.div`
   z-index: 1000;
@@ -32,7 +33,26 @@ const Body = styled.div`
   }
 `;
 
-const TextBody = ({ body, subtitle }) => {
+const ArtistTags = styled.div`
+  width: 600px;
+  margin: 40px auto 60px;
+  padding-top: 40px;
+  text-transform: uppercase;
+  color: #C0C0C0;
+  font-weight: bold;
+  border-top: 2px solid black;
+  a {
+    color: black;
+    text-decoration: none;
+    &:hover {
+        color: #E7334D;
+    }
+  }
+`;
+
+const TextBody = ({ body, subtitle, artists }) => {
+  const artistTags = artists ? formatArtistTags(artists) : null;
+
   return (
     <Container>
       <Subtitle>
@@ -51,6 +71,11 @@ const TextBody = ({ body, subtitle }) => {
           transformImageUri={uri => uri.startsWith('http') ? uri : `${process.env.IMAGE_BASE_URL}${uri}`}
         />
       </Body>
+      {artistTags && 
+        <ArtistTags>
+          <p>Tags: { artistTags }</p>
+        </ArtistTags>
+      }
     </Container>
   )
 };

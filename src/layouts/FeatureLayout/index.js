@@ -16,7 +16,6 @@ const FeatureLayout = (props) => {
 		<Container>
 			<Navigation />
 			{props.children}
-			<Footer />
 		</Container>
 	);
 };

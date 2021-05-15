@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
-import formatAuthor from './../helpers/formatAuthor';
+import { formatAuthor } from '../helpers/formatLists';
 
 import FeatureLayout from './../layouts/FeatureLayout';
 import TextBody from './../components/TextBody';
@@ -17,6 +17,8 @@ const Banner = styled.div`
   height: 100vh;
   width: 100%;
   z-index: -1;
+  background-size: cover;
+  background-position: center;
   img {
     object-fit: cover;
     width: 100%;
@@ -24,20 +26,16 @@ const Banner = styled.div`
   }
 `;
 
-const ImgWrap = styled.div`
-  height: 100vh;
-`;
-
 const Details = styled.div`
   position: absolute;
   bottom: 0;
   width: 1000px;
   margin: 0 0 80px 180px;
+  color: white;
 `;
 
 const Credit = styled.div`
   display: flex;
-  color: white;
   font-size: 2rem;
   a {
     color: white;
@@ -57,22 +55,24 @@ const Credit = styled.div`
 `;
 
 const Body = styled.div`
-  width: calc(100vw - 80px);
+  width: calc(100vw - 81px);
   background-color: white;
   float: right;
   transform: translateY(100vh);
+  div:first-of-type {
+    margin-top: 100px;
+  }
 `;
 
 const FeatureTemplate = (props) => {
-  const { title, body, coverImage, publishedDate, authors, artists } = props.data.strapiFeatures;
+  const { title, body, subtitle, coverImage, publishedDate, authors, artists } = props.data.strapiFeatures;
 
   const author = formatAuthor(authors);
 
   return (
     <FeatureLayout>
       <Container>
-        <Banner>
-          <img src={coverImage.publicURL} alt=""/>
+        <Banner style={{backgroundImage: `linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.8)), url(${coverImage.publicURL})`}}>
           <Details>
             <h1>{title}</h1>
             <Credit>
@@ -85,7 +85,7 @@ const FeatureTemplate = (props) => {
           </Details>
         </Banner>
         <Body>
-          <TextBody body={body} style={{zIndex:10000}} />
+          <TextBody body={body} subtitle={subtitle} artists={artists} />
         </Body>
       </Container>
     </FeatureLayout>
@@ -96,6 +96,7 @@ export const query = graphql`
   query($slug: String!){
     strapiFeatures (slug: { eq: $slug }) {
       title
+      subtitle
       body
       publishedDate(formatString:"MMMM D YYYY")
       authors {
@@ -103,6 +104,7 @@ export const query = graphql`
       }
       artists {
         englishName
+        slug
       }
       coverImage {
         publicURL

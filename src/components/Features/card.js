@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import formatAuthor from './../../helpers/formatAuthor';
+import { formatAuthor } from '../../helpers/formatLists';
 
 const Container = styled.div`
   flex-basis: calc(33.3333% - 30px);
