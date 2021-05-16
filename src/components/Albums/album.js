@@ -20,10 +20,28 @@ const ImgWrap = styled.div`
 `;
 
 const Details = styled.div`
+  h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    &:first-of-type {
+      margin-top: 15px;
+    }
+    &:last-of-type {
+      font-weight: lighter;
+      font-style: italic;
+    }
+  }
+  p {
+    font-size: 10px;
+    font-weight: bolder;
+    margin-top: .7rem;
+    text-transform: uppercase;
+    color: silver;
+  }
 `;
 
 const Album = props => {
-  const { englishTitle, artists, cover, slug } = props;
+  const { englishTitle, artists, cover, slug, releaseDate } = props;
 
   return (
     <Container>
@@ -38,8 +56,9 @@ const Album = props => {
       </Link>
       
       <Details>
-        <h3>{englishTitle}</h3>
         <h3>{artists[0].englishName}</h3>
+        <h3>{englishTitle}</h3>
+        <p>{releaseDate}</p>
       </Details>
     </Container>
   )

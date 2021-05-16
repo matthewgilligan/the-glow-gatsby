@@ -21,6 +21,24 @@ const NewMusicIndex = ({ data }) => {
 
 export const query = graphql`
   query {
+    all: allStrapiAlbums {
+      edges {
+        node {
+          englishTitle
+          slug
+          artists {
+            englishName
+          }
+          genre {
+            name
+          }
+          releaseDate(formatString:"MMMM D YYYY")
+          cover {
+            url
+          }
+        }
+      }
+    }
     pop: allStrapiAlbums ( filter: { genre:{ name: { eq: "Pop" } } } ) {
       edges {
         node {
@@ -32,6 +50,7 @@ export const query = graphql`
           genre {
             name
           }
+          releaseDate(formatString:"MMMM D YYYY")
           cover {
             url
           }
@@ -48,6 +67,7 @@ export const query = graphql`
           genre {
             name
           }
+          releaseDate(formatString:"MMMM D YYYY")
           cover {
             url
           }
@@ -64,6 +84,7 @@ export const query = graphql`
           genre {
             name
           }
+          releaseDate(formatString:"MMMM D YYYY")
           cover {
             url
           }
@@ -80,6 +101,7 @@ export const query = graphql`
           genre {
             name
           }
+          releaseDate(formatString:"MMMM D YYYY")
           cover {
             url
           }
@@ -96,6 +118,7 @@ export const query = graphql`
           genre {
             name
           }
+          releaseDate(formatString:"MMMM D YYYY")
           cover {
             url
           }
@@ -112,6 +135,7 @@ export const query = graphql`
           genre {
             name
           }
+          releaseDate(formatString:"MMMM D YYYY")
           cover {
             url
           }
