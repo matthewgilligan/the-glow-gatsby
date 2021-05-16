@@ -21,7 +21,7 @@ const NewMusicIndex = ({ data }) => {
 
 export const query = graphql`
   query {
-    all: allStrapiAlbums {
+    all: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC } ){
       edges {
         node {
           englishTitle
@@ -39,7 +39,7 @@ export const query = graphql`
         }
       }
     }
-    pop: allStrapiAlbums ( filter: { genre:{ name: { eq: "Pop" } } } ) {
+    pop: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC }, filter: { genre:{ name: { eq: "Pop" } } } ) {
       edges {
         node {
           englishTitle
@@ -57,7 +57,7 @@ export const query = graphql`
         }
       }
     }
-    rock: allStrapiAlbums ( filter: { genre:{ name: { eq: "Rock" } } } ) {
+    rock: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC }, filter: { genre:{ name: { eq: "Rock" } } } ) {
       edges {
         node {
           englishTitle
@@ -74,7 +74,7 @@ export const query = graphql`
         }
       }
     }
-    hiphop: allStrapiAlbums ( filter: { genre:{ name: { eq: "Hip-Hop" } } } ) {
+    hiphop: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC }, filter: { genre:{ name: { eq: "Hip-Hop" } } } ) {
       edges {
         node {
           englishTitle
@@ -91,7 +91,7 @@ export const query = graphql`
         }
       }
     }
-    electrpnic: allStrapiAlbums ( filter: { genre:{ name: { eq: "Electronic" } } } ) {
+    electrpnic: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC }, filter: { genre:{ name: { eq: "Electronic" } } } ) {
       edges {
         node {
           englishTitle
@@ -108,7 +108,7 @@ export const query = graphql`
         }
       }
     }
-    experimental: allStrapiAlbums ( filter: { genre:{ name: { eq: "Experimental" } } } ) {
+    experimental: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC }, filter: { genre:{ name: { eq: "Experimental" } } } ) {
       edges {
         node {
           englishTitle
@@ -125,7 +125,7 @@ export const query = graphql`
         }
       }
     }
-    folk: allStrapiAlbums ( filter: { genre:{ name: { eq: "Folk" } } } ) {
+    folk: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC }, filter: { genre:{ name: { eq: "Folk" } } } ) {
       edges {
         node {
           englishTitle

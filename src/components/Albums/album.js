@@ -20,6 +20,8 @@ const ImgWrap = styled.div`
 `;
 
 const Details = styled.div`
+  text-align: center;
+  width: 170px;
   h3 {
     font-size: 16px;
     margin: 10px 0;
