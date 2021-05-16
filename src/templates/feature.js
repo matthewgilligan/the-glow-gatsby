@@ -26,31 +26,16 @@ const Banner = styled.div`
   }
 `;
 
-const Details = styled.div`
+const Title = styled.div`
   position: absolute;
   bottom: 0;
   width: 1000px;
   margin: 0 0 80px 180px;
   color: white;
-`;
-
-const Credit = styled.div`
-  display: flex;
-  font-size: 2rem;
-  a {
-    color: white;
-  }
-  h1 {
-    margin: 0;
-    color: black;
-    font-size: 8rem;
-  }
   p {
-    &:first-of-type {
-      a {
-        margin-right: 40px;
-      }
-    }
+    font-family: 'Lexend Tera';
+    font-size: 16px;
+    text-transform: uppercase;
   }
 `;
 
@@ -73,16 +58,10 @@ const FeatureTemplate = (props) => {
     <FeatureLayout>
       <Container>
         <Banner style={{backgroundImage: `linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.8)), url(${coverImage.publicURL})`}}>
-          <Details>
+          <Title>
             <h1>{title}</h1>
-            <Credit>
-              <p>{publishedDate}</p>
-              <Link to="">
-                <p className="author">{author}</p>
-              </Link>
-            </Credit>
-            {/* <h1>{artists[0].englishName}</h1> */}
-          </Details>
+            <p>{publishedDate}</p>
+          </Title>
         </Banner>
         <Body>
           <TextBody body={body} subtitle={subtitle} artists={artists} />

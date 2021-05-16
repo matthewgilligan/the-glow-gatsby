@@ -24,7 +24,7 @@ export const query = graphql`
     pop: allStrapiAlbums ( filter: { genre:{ name: { eq: "Pop" } } } ) {
       edges {
         node {
-          title
+          englishTitle
           artists {
             englishName
           }
@@ -40,7 +40,7 @@ export const query = graphql`
     rock: allStrapiAlbums ( filter: { genre:{ name: { eq: "Rock" } } } ) {
       edges {
         node {
-          title
+          englishTitle
           artists {
             englishName
           }
@@ -56,7 +56,7 @@ export const query = graphql`
     hiphop: allStrapiAlbums ( filter: { genre:{ name: { eq: "Hip-Hop" } } } ) {
       edges {
         node {
-          title
+          englishTitle
           artists {
             englishName
           }
