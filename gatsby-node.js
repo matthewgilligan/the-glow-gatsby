@@ -8,6 +8,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
 	const albumTemplate = path.resolve('./src/templates/album.js')
 	const artistTemplate = path.resolve('./src/templates/artist.js')
 	const authorTemplate = path.resolve('./src/templates/author.js')
+	const labelTemplate = path.resolve('./src/templates/label.js')
 
 	const res = await graphql(`
 		query {
@@ -40,6 +41,13 @@ module.exports.createPages = async ({ graphql, actions }) => {
 				}
       }
       allStrapiAuthors {
+				edges {
+					node {
+						slug
+					}
+				}
+      }
+      allStrapiLabels {
 				edges {
 					node {
 						slug
@@ -100,6 +108,15 @@ module.exports.createPages = async ({ graphql, actions }) => {
 		createPage({
 			component: authorTemplate,
 			path: `/author/${edge.node.slug}`,
+			context: {
+				slug: edge.node.slug
+			}
+		})
+  });
+  res.data.allStrapiLabels.edges.forEach((edge) => {
+		createPage({
+			component: labelTemplate,
+			path: `/label/${edge.node.slug}`,
 			context: {
 				slug: edge.node.slug
 			}

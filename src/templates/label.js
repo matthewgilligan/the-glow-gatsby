@@ -1,0 +1,24 @@
+import React from 'react';
+import { graphql } from 'gatsby';
+
+import MainLayout from './../layouts/MainLayout';
+
+const LabelTemplate = ({ data }) => {
+  const { englishName } = data.strapiLabels;
+
+  return (
+    <MainLayout>
+      <h1>{englishName}</h1>
+    </MainLayout>
+  )
+};
+
+export const query = graphql`
+  query($slug: String!){
+    strapiLabels (slug: { eq: $slug }) {
+      englishName
+    }
+  }
+`;
+
+export default LabelTemplate;

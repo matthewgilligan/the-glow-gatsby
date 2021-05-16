@@ -1,15 +1,20 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 
 import MainLayout from './../layouts/MainLayout';
 
 const AlbumTemplate = ({ data }) => {
-  const { englishTitle, japaneseTitle } = data.strapiAlbums;
+  const { englishTitle, japaneseTitle, label } = data.strapiAlbums;
 
   return (
     <MainLayout>
       <h1>{englishTitle}</h1>
       {japaneseTitle && <h2>{japaneseTitle}</h2>}
+      {label &&
+        <Link to={`/label/${label.slug}`}>
+          <h2>{label.englishName}</h2>
+        </Link>
+      }
     </MainLayout>
   )
 };
@@ -19,6 +24,10 @@ export const query = graphql`
     strapiAlbums (slug: { eq: $slug }) {
       englishTitle
       japaneseTitle
+      label {
+        englishName
+        slug
+      }
     }
   }
 `;
