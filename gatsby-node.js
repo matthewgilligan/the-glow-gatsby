@@ -5,6 +5,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   
 	const featureTemplate = path.resolve('./src/templates/feature.js')
 	const selectorTemplate = path.resolve('./src/templates/selector.js')
+	const albumTemplate = path.resolve('./src/templates/album.js')
 	const artistTemplate = path.resolve('./src/templates/artist.js')
 	const authorTemplate = path.resolve('./src/templates/author.js')
 
@@ -23,7 +24,14 @@ module.exports.createPages = async ({ graphql, actions }) => {
 						slug
 					}
 				}
-			}
+      }
+      allStrapiAlbums {
+				edges {
+					node {
+						slug
+					}
+				}
+      }
 			allStrapiArtists {
 				edges {
 					node {
@@ -62,6 +70,16 @@ module.exports.createPages = async ({ graphql, actions }) => {
 		createPage({
 			component: selectorTemplate,
 			path: `/selector/${edge.node.slug}`,
+			context: {
+				slug: edge.node.slug
+			}
+		})
+  });
+  
+  res.data.allStrapiAlbums.edges.forEach((edge) => {
+		createPage({
+			component: albumTemplate,
+			path: `/album/${edge.node.slug}`,
 			context: {
 				slug: edge.node.slug
 			}

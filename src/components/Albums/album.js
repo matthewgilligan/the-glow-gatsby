@@ -23,17 +23,19 @@ const Details = styled.div`
 `;
 
 const Album = props => {
-  const { englishTitle, artists, cover } = props;
+  const { englishTitle, artists, cover, slug } = props;
 
   return (
     <Container>
-      <ImgWrap>
-        <img 
-          src={`http://localhost:1337${cover[0].url}`} 
-          alt=""
-          className="image"
-        />
-      </ImgWrap>
+      <Link to={`/album/${slug}`}>
+        <ImgWrap>
+          <img 
+            src={`http://localhost:1337${cover[0].url}`} 
+            alt=""
+            className="image"
+            />
+        </ImgWrap>
+      </Link>
       
       <Details>
         <h3>{englishTitle}</h3>

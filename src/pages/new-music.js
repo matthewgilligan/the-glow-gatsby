@@ -25,6 +25,7 @@ export const query = graphql`
       edges {
         node {
           englishTitle
+          slug
           artists {
             englishName
           }
