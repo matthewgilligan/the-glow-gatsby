@@ -1,36 +1,47 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import './styles.scss';
-import Album from './Album';
+import Album from './album';
+
+const Container = styled.div`
+`;
+
+const AlbumsWrap = styled.div`
+  display: flex;
+  overflow-y: hidden;
+  padding-top: 20px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
 
 const Albums = (props) => {
   const { edges } = props[1];
-  console.log(edges);
   const { genre } = edges[0].node;
 
   if (!Array.isArray(edges)) return null;
 
   if (edges.length < 1) {
     return (
-      <div className="products">
+      <Container>
         <p>
           Content is on the way - stay tuned!
         </p>
-      </div>
+      </Container>
     );
   };
 
   return (
-    <div>
+    <Container>
       <h1>{genre.name}</h1>
-      <div className="albums">
+      <AlbumsWrap>
         {edges.map((edge, pos) => {
           return (
             <Album key={pos} {...edge.node} />
           )
         })}
-      </div>
-    </div>
+      </AlbumsWrap>
+    </Container>
   )
 };
 

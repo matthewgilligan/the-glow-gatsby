@@ -69,6 +69,54 @@ export const query = graphql`
         }
       }
     }
+    electrpnic: allStrapiAlbums ( filter: { genre:{ name: { eq: "Electronic" } } } ) {
+      edges {
+        node {
+          englishTitle
+          artists {
+            englishName
+          }
+          genre {
+            name
+          }
+          cover {
+            url
+          }
+        }
+      }
+    }
+    experimental: allStrapiAlbums ( filter: { genre:{ name: { eq: "Experimental" } } } ) {
+      edges {
+        node {
+          englishTitle
+          artists {
+            englishName
+          }
+          genre {
+            name
+          }
+          cover {
+            url
+          }
+        }
+      }
+    }
+    folk: allStrapiAlbums ( filter: { genre:{ name: { eq: "Folk" } } } ) {
+      edges {
+        node {
+          englishTitle
+          artists {
+            englishName
+          }
+          genre {
+            name
+          }
+          cover {
+            url
+          }
+        }
+      }
+    }
   }
 `;
 
