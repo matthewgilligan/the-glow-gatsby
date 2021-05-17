@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
 
 import Logo from './../../images/the-glow-sun-S-Standard.svg';
+import HamburgerMenu from './../MobileNav/HamburgerMenu';
 import { LightScheme } from './../../helpers/navColors.js';
 
 const Container = styled.div`
@@ -64,7 +65,7 @@ const Navigation = ({ colorScheme }) => {
 		<Container style={{ borderRight: border }}>
       <BackgroundColor style={background} />
 			<Search>
-				<FiSearch role="button" href="#" style={{ width: '45px', color: hamburger }}/>
+			  <HamburgerMenu />
 			</Search>
       <h1 style={{ color: hamburger }}>The Glow</h1>
 			<Link to="/" >
