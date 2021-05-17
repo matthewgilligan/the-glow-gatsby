@@ -11,6 +11,9 @@ const Container = styled.div`
   &:hover {
     transform: scale(1.08);
   }
+  &:first-of-type {
+    padding-left: 0px;
+  }
 `;
 
 const ImgWrap = styled.div`

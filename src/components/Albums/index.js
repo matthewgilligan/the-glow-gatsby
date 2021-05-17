@@ -13,6 +13,9 @@ const AlbumsWrap = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+  &:first-child {
+    padding-left: 0px;
+  }
 `;
 
 const Albums = (props) => {
