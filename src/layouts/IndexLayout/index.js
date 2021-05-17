@@ -17,7 +17,7 @@ const Container = styled.div`
 const Content = styled.div`
 	width: calc(100vw - 80px);
 	float: right;
-	padding: 40px 0;
+	padding: 0 40px;
 `;
 
 const PageTitle = styled.div`
@@ -32,7 +32,7 @@ const IndexLayout = ({ children, title, navColor, backgroundColor }) => {
 	return (
 		<Container style={{ backgroundColor: backgroundColor }}>
 			<Navigation colorScheme={navColor} />
-			<Content>
+			<Content style={{paddingRight: title == "New Music" ? "0px": ""}} >
 				<Header />
 				<PageTitle>
 					<h1>{title}</h1>
