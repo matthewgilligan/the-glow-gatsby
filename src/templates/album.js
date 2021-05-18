@@ -2,12 +2,13 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import MainLayout from './../layouts/MainLayout';
+import { OriginalScheme } from './../helpers/navColors';
 
 const AlbumTemplate = ({ data }) => {
   const { englishTitle, japaneseTitle, label } = data.strapiAlbums;
 
   return (
-    <MainLayout>
+    <MainLayout navColor={OriginalScheme}>
       <h1>{englishTitle}</h1>
       {japaneseTitle && <h2>{japaneseTitle}</h2>}
       {label &&
