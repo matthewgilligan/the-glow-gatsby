@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import MainLayout from './../layouts/MainLayout';
 import { LightScheme } from './../helpers/navColors';
+import TextBody from './../components/TextBody';
 
 const NavBarImg = styled.div`
   position: fixed;
@@ -31,7 +32,7 @@ const BannerWrap = styled.div`
   display: flex;
   max-width: 1350px;
   width: 100%;
-  padding: 0 60px;
+  padding: 0 100px;
   justify-content: space-between;
   bottom: 0;
   transform: translateY(150px);
@@ -59,15 +60,15 @@ const ImgWrap = styled.div`
   }
 `;
 
-const Content = styled.div`
+const Body = styled.div`
   width: 60%;
   max-width: 700px;
-  padding: 0 60px;
-  transform: translateY(-100px);
+  padding: 0 100px;
+  transform: translateY(-75px);
 `;
 
 const AlbumTemplate = ({ data }) => {
-  const { englishTitle, japaneseTitle, artists, cover, releaseDate, genre, label } = data.strapiAlbums;
+  const { englishTitle, japaneseTitle, artists, body, cover, releaseDate, genre, label } = data.strapiAlbums;
 
   console.log(cover)
 
@@ -97,8 +98,9 @@ const AlbumTemplate = ({ data }) => {
           </ImgWrap>
         </BannerWrap>
       </Banner>
-      <Content>
-      </Content>
+      <Body>
+        <TextBody body={body} />
+      </Body>
     </MainLayout>
   )
 };
@@ -113,6 +115,7 @@ export const query = graphql`
         englishName
         slug
       }
+      body
       cover {
         url
       }
