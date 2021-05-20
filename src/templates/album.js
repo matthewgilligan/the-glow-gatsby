@@ -6,7 +6,7 @@ import MainLayout from './../layouts/MainLayout';
 import { OriginalScheme } from './../helpers/navColors';
 
 const NavBarImg = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 80px;
@@ -14,12 +14,18 @@ const NavBarImg = styled.div`
   img {
     object-fit: cover;
     width: 80px;
-  height: 100vh;
+    height: 100vh;
   }
 `;
 
+const Container = styled.div`
+  width: calc(100vw - 80px);
+  float: right;
+  padding: 0 60px;
+`;
+
 const AlbumTemplate = ({ data }) => {
-  const { englishTitle, japaneseTitle, artists, cover, releaseDate, label } = data.strapiAlbums;
+  const { englishTitle, japaneseTitle, artists, cover, releaseDate, genre, label } = data.strapiAlbums;
 
   console.log(cover)
 
@@ -28,18 +34,21 @@ const AlbumTemplate = ({ data }) => {
       <NavBarImg>
         <img src={`${process.env.IMAGE_BASE_URL}${cover[0].url}`} alt=""/>
       </NavBarImg>
-      <h1>{englishTitle}</h1>
-      {japaneseTitle && <h2>{japaneseTitle}</h2>}
-      <Link to={`/artist/${artists[0].slug}`}>
-        <h2>{artists[0].englishName}</h2>
-      </Link>
-      <img src={`${process.env.IMAGE_BASE_URL}${cover[0].url}`} alt=""/>
-      <p>{releaseDate}</p>
-      {label &&
-        <Link to={`/label/${label.slug}`}>
-          <p>{label.englishName}</p>
+      <Container>
+        <h1>{englishTitle}</h1>
+        {japaneseTitle && <h2>{japaneseTitle}</h2>}
+        <Link to={`/artist/${artists[0].slug}`}>
+          <h2>{artists[0].englishName}</h2>
         </Link>
-      }
+        <p>{genre.name}</p>
+        <p>{releaseDate}</p>
+        {label &&
+          <Link to={`/label/${label.slug}`}>
+            <p>{label.englishName}</p>
+          </Link>
+        }
+        <img src={`${process.env.IMAGE_BASE_URL}${cover[0].url}`} alt=""/>
+      </Container>
     </MainLayout>
   )
 };
@@ -56,6 +65,9 @@ export const query = graphql`
       }
       cover {
         url
+      }
+      genre {
+        name
       }
       label {
         englishName
