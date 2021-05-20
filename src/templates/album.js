@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import MainLayout from './../layouts/MainLayout';
-import { OriginalScheme } from './../helpers/navColors';
+import { LightScheme } from './../helpers/navColors';
 
 const NavBarImg = styled.div`
   position: fixed;
@@ -30,7 +30,7 @@ const AlbumTemplate = ({ data }) => {
   console.log(cover)
 
   return (
-    <MainLayout navColor={OriginalScheme}>
+    <MainLayout navColor={LightScheme}>
       <NavBarImg>
         <img src={`${process.env.IMAGE_BASE_URL}${cover[0].url}`} alt=""/>
       </NavBarImg>

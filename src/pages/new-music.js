@@ -61,6 +61,7 @@ export const query = graphql`
       edges {
         node {
           englishTitle
+          slug
           artists {
             englishName
           }
@@ -78,6 +79,7 @@ export const query = graphql`
       edges {
         node {
           englishTitle
+          slug
           artists {
             englishName
           }
@@ -91,10 +93,11 @@ export const query = graphql`
         }
       }
     }
-    electrpnic: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC }, filter: { genre:{ name: { eq: "Electronic" } } } ) {
+    electronic: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC }, filter: { genre:{ name: { eq: "Electronic" } } } ) {
       edges {
         node {
           englishTitle
+          slug
           artists {
             englishName
           }
@@ -112,6 +115,7 @@ export const query = graphql`
       edges {
         node {
           englishTitle
+          slug
           artists {
             englishName
           }
@@ -129,6 +133,7 @@ export const query = graphql`
       edges {
         node {
           englishTitle
+          slug
           artists {
             englishName
           }

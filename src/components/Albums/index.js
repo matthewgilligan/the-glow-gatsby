@@ -20,7 +20,7 @@ const AlbumsWrap = styled.div`
 
 const Albums = (props) => {
   const { edges } = props[1];
-  const { genre } = edges[0].node;
+  const genre = props[0] == "all" ? "All" : edges[0].node.genre.name;
 
   if (!Array.isArray(edges)) return null;
 
@@ -36,7 +36,7 @@ const Albums = (props) => {
 
   return (
     <Container>
-      <h1>{genre.name}</h1>
+      <h1>{genre}</h1>
       <AlbumsWrap>
         {edges.map((edge, pos) => {
           return (
