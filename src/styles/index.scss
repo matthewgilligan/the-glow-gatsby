@@ -31,8 +31,6 @@ p {
   font-size: 16px;
   line-height: 1.8;
   a {
-    text-decoration: none;
-    color: black;
     text-decoration: underline;
     text-decoration-color: #e7334d;
   }
@@ -42,7 +40,8 @@ a {
   text-decoration: none;
 }
 
-h1 {
+h1,
+h2 {
   font-family: "Lexend Tera";
   text-transform: uppercase;
   font-weight: lighter;
@@ -51,6 +50,11 @@ h1 {
 h3 {
   margin: 70px 0 35px;
   font-size: 26px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 a,
