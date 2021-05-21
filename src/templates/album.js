@@ -24,12 +24,12 @@ const Banner = styled.div`
   width: 100%;
   height: 350px;
   margin-bottom: 150px;
+  background-color: pink;
 `;
 
 const BannerWrap = styled.div`
   position: absolute;
   display: flex;
-  max-width: 1350px;
   width: 100%;
   padding: 0 100px;
   justify-content: space-between;
@@ -59,11 +59,43 @@ const ImgWrap = styled.div`
   }
 `;
 
+const Content = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const Body = styled.div`
   width: 60%;
   max-width: 700px;
   padding: 0 100px;
-  transform: translateY(-75px);
+  transform: translateY(-125px);
+`;
+
+const Details = styled.div`
+  margin: 60px 100px 0 0;
+  width: 400px;
+  h3 {
+    font-family: 'Lexend Tera';
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 0 0 10px;
+  }
+`;
+
+const Info = styled.div`
+  display: flex;
+`;
+
+const Keys = styled.div`
+  width: 120px;
+  font-weight: bolder;
+`;
+
+const Values = styled.div`
+  a {
+    text-decoration: underline;
+    text-decoration-color: #e7334d;
+  }
 `;
 
 const AlbumTemplate = ({ data }) => {
@@ -84,22 +116,38 @@ const AlbumTemplate = ({ data }) => {
             </Link>
             <h1>{englishTitle}</h1>
             {japaneseTitle && <h2>{japaneseTitle}</h2>}
-            <p>{genre.name}</p>
-            <p>{releaseDate}</p>
-            {label &&
-              <Link to={`/label/${label.slug}`}>
-                <p>{label.englishName}</p>
-              </Link>
-            }
           </TextWrap>
           <ImgWrap>
             <img src={`${process.env.IMAGE_BASE_URL}${cover[0].url}`} alt=""/>
           </ImgWrap>
         </BannerWrap>
       </Banner>
-      <Body>
-        <TextBody body={body} />
-      </Body>
+      <Content>
+        <Body>
+          <TextBody body={body} />
+        </Body>
+        <Details>
+          <h3>Release Info</h3>
+          <Info>
+            <Keys>
+              <p>Type</p>
+              <p>Genre</p>
+              <p>Released</p>
+              {label && <p>Label</p>}
+            </Keys>
+            <Values>
+              <p>Album</p>
+              <p>{genre.name}</p>
+              <p>{releaseDate}</p>
+              {label &&
+                <Link to={`/label/${label.slug}`}>
+                  <p>{label.englishName}</p>
+                </Link>
+              }
+            </Values>
+          </Info>
+        </Details>
+      </Content>
     </MainLayout>
   )
 };
