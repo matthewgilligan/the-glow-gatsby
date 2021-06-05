@@ -33,7 +33,7 @@ const SelectorCard = ({ node }) => {
   return (
     <Card>
       <Link to={`${slug}`}>
-        {coverImage && <img src={coverImage.publicURL} alt=""/>}
+        {coverImage && <img src={process.env.IMAGE_BASE_URL + coverImage.url} alt=""/>}
         <h2><span>#{selectorID}</span>{artists[0].englishName}</h2>
       </Link>
     </Card>

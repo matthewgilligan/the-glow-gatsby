@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
 
 const Container = styled.div`
 	height: 100vh;
@@ -19,11 +18,7 @@ const Hero = (props) => {
 	return (
 		<Container>
 			<Link to={`/interviews/${slug}`}>
-				<Img
-					fluid={coverImage.fluid}
-					key={coverImage.fluid.src}
-					alt={coverImage.title}>
-				</Img>
+				<img src={process.env.IMAGE_BASE_URL + coverImage.url} alt=""/>
 			</Link>
 		</Container>
 	)

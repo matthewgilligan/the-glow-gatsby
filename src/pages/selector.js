@@ -21,7 +21,7 @@ export const query = graphql`
             englishName
           }
           coverImage {
-            publicURL
+            url
           }
           slug
           selectorID

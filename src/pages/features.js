@@ -31,7 +31,7 @@ export const query = graphql`
             name
           }
           coverImage {
-            publicURL
+            url
           }
         }
       }

@@ -57,7 +57,7 @@ const Feature = ({ node }) => {
     <Container>
       <ImgWrap>
         <Link to={`./${slug}`}>
-          <img src={coverImage.publicURL} alt="" />
+          <img src={process.env.IMAGE_BASE_URL + coverImage.url} alt="" />
         </Link>
       </ImgWrap>
       <TextWrap>

@@ -3,78 +3,40 @@ import { graphql } from 'gatsby';
 
 import HomeLayout from './../layouts/HomeLayout';
 import Hero from './../components/Hero';
-import ReviewsPreview from '../components/ReviewsPreview';
 
 const Home = (props) => {
-	const { latestInterview, reviews } = props.data;
-
-	const configLatestInterview = {
-		...latestInterview
-	}
-    
-	const configReviews = {
-		...reviews
-	}
+	const { latestInterview } = props.data;
 
 	return (
 		<HomeLayout>
-			<Hero {...configLatestInterview} />
-			<ReviewsPreview {...configReviews} />
+			<Hero {...latestInterview} />
 		</HomeLayout>
 	);
 };
 
 export const query = graphql`
 	query {
-		latestInterview : allContentfulFeature ( sort: { fields:publishedDate, order:DESC }, filter: { category:{ name: { eq: "Interviews" } } }, limit: 1 ) {
-			edges {
-				node {
-					slug
-					title
-					publishedDate(formatString:"MMMM Do YYYY")
-					subtitle {
-						json
-					}
-					category {
-						name
-					}
-					coverImage {
-						title
-						file {
-							url
-						}
-						fluid {
-							...GatsbyContentfulFluid
-						}
-					}
-					artist {
-						englishName
-					}
-					author {
-						englishName
-						slug
-					}
-				}
-			}
-		}
-		reviews : allContentfulReview ( sort: { fields:publishedDate, order:DESC } limit: 12 ) {
-			edges {
-				node {
-					albumTitle
-					slug
-					artist {
-						englishName
-					}
-					albumCover {
-						title
-						fluid {
-							...GatsbyContentfulFluid
-						}
-					}
-					publishedDate (formatString:"MMMM Do YYYY")
-				}
-			}
-		}
+		latestInterview : allStrapiFeatures (sort: { fields: publishedDate, order: DESC }, filter: { subcategory: { name: { ne: "Selector" } } }) {
+      edges {
+        node {
+          title
+          publishedDate(formatString:"MMMM Do YYYY")
+          slug
+          artists {
+            englishName
+          }
+          authors {
+            englishName
+          }
+          category {
+            name
+          }
+          coverImage {
+            url
+          }
+        }
+      }
+    }
 	}
 `
 

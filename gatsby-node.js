@@ -54,13 +54,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
 					}
 				}
 			}
-			allContentfulReview {
-				edges {
-					node {
-						slug
-					}
-				}
-			}
 		}
 	`)
 

@@ -91,7 +91,7 @@ const SelectorTemplate = (props) => {
           </BannerTextWrap>
           <BannerImg>
             <BannerImgWrap>
-              <img src={coverImage.publicURL} alt=""/>
+              <img src={process.env.IMAGE_BASE_URL + coverImage.url} alt=""/>
               <h2>Selector</h2>
             </BannerImgWrap>
           </BannerImg>
@@ -116,7 +116,7 @@ export const query = graphql`
         englishName
       }
       coverImage {
-        publicURL
+        url
       }
     }
   }

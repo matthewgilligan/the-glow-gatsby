@@ -57,7 +57,7 @@ const FeatureTemplate = (props) => {
   return (
     <FeatureLayout>
       <Container>
-        <Banner style={{backgroundImage: `linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.8)), url(${coverImage.publicURL})`}}>
+        <Banner style={{backgroundImage: `linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.8)), url(${process.env.IMAGE_BASE_URL + coverImage.url})`}}>
           <Title>
             <h1>{title}</h1>
             <p>{publishedDate}</p>
@@ -86,7 +86,7 @@ export const query = graphql`
         slug
       }
       coverImage {
-        publicURL
+        url
       }
     }
   }
