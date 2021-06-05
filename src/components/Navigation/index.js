@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { FiSearch } from 'react-icons/fi';
 
 import Logo from './../../images/the-glow-sun-S-Standard.svg';
 import HamburgerMenu from './../MobileNav/HamburgerMenu';

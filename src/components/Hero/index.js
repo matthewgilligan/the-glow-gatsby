@@ -12,8 +12,7 @@ const Container = styled.div`
 `;
 
 const Hero = (props) => {
-	const { slug, title, publishedDate, subtitle, category, 
-		coverImage, artist, author } = props.edges[0].node;
+	const { slug, coverImage } = props.edges[0].node;
 
 	return (
 		<Container>

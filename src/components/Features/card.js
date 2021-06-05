@@ -45,7 +45,7 @@ const Info = styled.div`
 
 
 const Feature = ({ node }) => {
-  const { title, category, slug, publishedDate, authors, artists, coverImage } = node;
+  const { title, category, slug, authors, artists, coverImage } = node;
 
   let author = formatAuthor(authors);
   

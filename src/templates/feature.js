@@ -1,7 +1,7 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import { formatAuthor } from '../helpers/formatLists';
+// import { formatAuthor } from '../helpers/formatLists';
 
 import FeatureLayout from './../layouts/FeatureLayout';
 import TextBody from './../components/TextBody';
@@ -50,9 +50,9 @@ const Body = styled.div`
 `;
 
 const FeatureTemplate = (props) => {
-  const { title, body, subtitle, coverImage, publishedDate, authors, artists } = props.data.strapiFeatures;
+  const { title, body, subtitle, coverImage, publishedDate, artists } = props.data.strapiFeatures;
 
-  const author = formatAuthor(authors);
+  // const author = formatAuthor(authors);
 
   return (
     <FeatureLayout>

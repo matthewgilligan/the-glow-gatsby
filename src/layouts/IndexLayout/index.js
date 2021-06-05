@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import './../../styles/index.scss';
-import Footer from './../../components/Footer';
+// import Footer from './../../components/Footer';
 import Header from './../../components/Header';
 import Navigation from './../../components/Navigation';
 
@@ -32,7 +32,7 @@ const IndexLayout = ({ children, title, navColor, backgroundColor }) => {
 	return (
 		<Container style={{ backgroundColor: backgroundColor }}>
 			<Navigation colorScheme={navColor} />
-			<Content style={{paddingRight: title == "New Music" ? "0px": ""}} >
+			<Content style={{paddingRight: title === "New Music" ? "0px": ""}} >
 				<Header />
 				<PageTitle>
 					<h1>{title}</h1>

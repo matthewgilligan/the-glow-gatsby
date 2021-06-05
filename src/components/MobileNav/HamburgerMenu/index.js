@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from "@reach/router";
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { FaRegEnvelope, FaInstagram } from "react-icons/fa";
 
 import MenuToggle from './menuToggle.js';
 import { NavMenu } from './navMenu';
@@ -22,27 +21,6 @@ const MenuContainer = styled(motion.div)`
 	left: 0;
 	user-select: none;
 	padding: 1em 2.5em;
-`;
-
-const BottomContainer = styled.div`
-	display: flex;
-	width: 100%;
-	margin-top: 15px;
-`;
-
-const SocialButton = styled(motion.button)`
-	color: black;
-	font-size: 2.5rem;
-	transition: all 250ms ease-in-out;
-	display: flex;
-	cursor: pointer;
-	padding: 5px .5em;
-	&:focus {
-		outline: none;
-	}
-	a{
-		color: black;
-	}
 `;
 
 const ContentContainer = styled.div`
@@ -67,22 +45,22 @@ const menuTransition = {
 	delay: 0.1,
 };
 
-const commonVariants = {
-	show: {
-		transform: "translateX(0em)",
-		opacity: 1,
-		transition: {
-		delay: 0.3,
-		duration: 0.01,
-		},
-	},
-	hide: {
-		transform: "translateX(5em)",
-		opacity: 0,
-	},
-};
+// const commonVariants = {
+// 	show: {
+// 		transform: "translateX(0em)",
+// 		opacity: 1,
+// 		transition: {
+// 		delay: 0.3,
+// 		duration: 0.01,
+// 		},
+// 	},
+// 	hide: {
+// 		transform: "translateX(5em)",
+// 		opacity: 0,
+// 	},
+// };
 
-const commonTransition = { type: "spring", duration: 0.05 };
+// const commonTransition = { type: "spring", duration: 0.05 };
 
 const HamburgerMenu = props => {
   const location = useLocation();

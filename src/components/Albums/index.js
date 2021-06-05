@@ -20,7 +20,7 @@ const AlbumsWrap = styled.div`
 
 const Albums = (props) => {
   const { edges } = props[1];
-  const genre = props[0] == "all" ? "All" : edges[0].node.genre.name;
+  const genre = props[0] === "all" ? "All" : edges[0].node.genre.name;
 
   if (!Array.isArray(edges)) return null;
 

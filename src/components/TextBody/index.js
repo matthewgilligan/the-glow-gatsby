@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
-import { formatArtistTags, formatAuthor } from './../../helpers/formatLists';
+import { formatArtistTags } from './../../helpers/formatLists';
 
 const Container = styled.div`
   z-index: 1000;
