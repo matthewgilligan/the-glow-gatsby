@@ -3,12 +3,12 @@ const path = require('path')
 module.exports.createPages = async ({ graphql, actions }) => {
 	const { createPage } = actions
   
-	const featureTemplate = path.resolve('./src/templates/feature.js')
-	const selectorTemplate = path.resolve('./src/templates/selector.js')
-	const albumTemplate = path.resolve('./src/templates/album.js')
-	const artistTemplate = path.resolve('./src/templates/artist.js')
-	const authorTemplate = path.resolve('./src/templates/author.js')
-	const labelTemplate = path.resolve('./src/templates/label.js')
+	const albumTemplate = path.resolve('./src/templates/Album')
+	const artistTemplate = path.resolve('./src/templates/Artist')
+	const authorTemplate = path.resolve('./src/templates/Author')
+	const featureTemplate = path.resolve('./src/templates/Feature')
+	const labelTemplate = path.resolve('./src/templates/Label')
+	const selectorTemplate = path.resolve('./src/templates/Selector')
 
 	const res = await graphql(`
 		query {
