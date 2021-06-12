@@ -2,9 +2,9 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import MainLayout from './../layouts/MainLayout';
-import { DarkScheme } from './../helpers/navColors.js';
-import TextBody from './../components/TextBody';
+import TextBody from 'components/TextBody';
+import MainLayout from 'layouts/MainLayout';
+import { DarkScheme } from 'helpers/navColors.js';
 
 const Container = styled.div`
   position: relative;
@@ -79,7 +79,8 @@ const BannerImgWrap = styled.div`
 `;
 
 const SelectorTemplate = (props) => {
-  const { body, subtitle, coverImage, publishedDate, artists } = props.data.strapiFeatures;
+  const { body, subtitle, coverImage, publishedDate, artists } =
+    props.data.strapiFeatures;
 
   return (
     <MainLayout navColor={DarkScheme}>
@@ -91,7 +92,7 @@ const SelectorTemplate = (props) => {
           </BannerTextWrap>
           <BannerImg>
             <BannerImgWrap>
-              <img src={process.env.IMAGE_BASE_URL + coverImage.url} alt=""/>
+              <img src={process.env.IMAGE_BASE_URL + coverImage.url} alt='' />
               <h2>Selector</h2>
             </BannerImgWrap>
           </BannerImg>
@@ -99,16 +100,16 @@ const SelectorTemplate = (props) => {
         <TextBody body={body} subtitle={subtitle} />
       </Container>
     </MainLayout>
-  )
+  );
 };
 
 export const query = graphql`
-  query($slug: String!){
-    strapiFeatures (slug: { eq: $slug }) {
+  query ($slug: String!) {
+    strapiFeatures(slug: { eq: $slug }) {
       title
       body
       subtitle
-      publishedDate(formatString:"MMMM D YYYY")
+      publishedDate(formatString: "MMMM D YYYY")
       authors {
         englishName
       }
@@ -120,6 +121,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
 export default SelectorTemplate;

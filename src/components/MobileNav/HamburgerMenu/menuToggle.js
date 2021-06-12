@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const Button = styled.div`
   z-index: 99;
@@ -12,9 +12,9 @@ const Button = styled.div`
 
 const Path = (props) => (
   <motion.path
-    fill="transparent"
-    strokeLinecap="round"
-    strokeWidth="3"
+    fill='transparent'
+    strokeLinecap='round'
+    strokeWidth='3'
     {...props}
   />
 );
@@ -24,20 +24,20 @@ const transition = { duration: 0.3 };
 const MenuToggle = ({ toggle, isOpen }) => {
   return (
     <Button onClick={toggle}>
-      <svg width="23" height="23" viewBox="0 0 23 23">
+      <svg width='23' height='23' viewBox='0 0 23 23'>
         <Path
-          animate={isOpen ? "open" : "closed"}
+          animate={isOpen ? 'open' : 'closed'}
           initial={false}
           variants={{
-            closed: { d: "M 2 2.5 L 20 2.5", stroke: "hsl(0, 100%, 0%)" },
-            open: { d: "M 3 16.5 L 17 2.5", stroke: "hsl(0, 100%, 100%)" },
+            closed: { d: 'M 2 2.5 L 20 2.5', stroke: 'hsl(0, 100%, 0%)' },
+            open: { d: 'M 3 16.5 L 17 2.5', stroke: 'hsl(0, 100%, 100%)' },
           }}
           transition={transition}
         />
         <Path
-          d="M 2 9.423 L 20 9.423"
-          stroke="hsl(0, 100%, 0%)"
-          animate={isOpen ? "open" : "closed"}
+          d='M 2 9.423 L 20 9.423'
+          stroke='hsl(0, 100%, 0%)'
+          animate={isOpen ? 'open' : 'closed'}
           initial={false}
           variants={{
             closed: { opacity: 1 },
@@ -46,11 +46,11 @@ const MenuToggle = ({ toggle, isOpen }) => {
           transition={transition}
         />
         <Path
-          animate={isOpen ? "open" : "closed"}
+          animate={isOpen ? 'open' : 'closed'}
           initial={false}
           variants={{
-            closed: { d: "M 2 16.346 L 20 16.346", stroke: "hsl(0, 100%, 0%)" },
-            open: { d: "M 3 2.5 L 17 16.346", stroke: "hsl(0, 100%, 100%)" },
+            closed: { d: 'M 2 16.346 L 20 16.346', stroke: 'hsl(0, 100%, 0%)' },
+            open: { d: 'M 3 2.5 L 17 16.346', stroke: 'hsl(0, 100%, 100%)' },
           }}
           transition={transition}
         />

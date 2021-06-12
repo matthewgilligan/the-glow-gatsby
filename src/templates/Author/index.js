@@ -1,12 +1,11 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
 
-import MainLayout from './../layouts/MainLayout';
-import { OriginalScheme } from './../helpers/navColors';
+import MainLayout from 'layouts/MainLayout';
+import { OriginalScheme } from 'helpers/navColors';
 
-const Container = styled.div`
-`;
+const Container = styled.div``;
 
 const AuthorTemplate = ({ data }) => {
   const { englishName, japaneseName } = data.strapiAuthors;
@@ -18,12 +17,12 @@ const AuthorTemplate = ({ data }) => {
         {japaneseName && <h2>{japaneseName}</h2>}
       </Container>
     </MainLayout>
-  )
+  );
 };
 
 export const query = graphql`
-  query($slug: String!){
-    strapiAuthors (slug: { eq: $slug }) {
+  query ($slug: String!) {
+    strapiAuthors(slug: { eq: $slug }) {
       englishName
       japaneseName
     }

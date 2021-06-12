@@ -1,26 +1,32 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { FaFacebookF, FaInstagram, FaTwitter, FaSpotify, FaApple } from 'react-icons/fa';
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaSpotify,
+  FaApple,
+} from 'react-icons/fa';
 
-import Logo from '../../images/white-glow.png';
+import Logo from 'assets/white-glow.png';
 
 const Container = styled.div`
-	padding-top: 2rem;
+  padding-top: 2rem;
   background-color: black;
   color: rgb(153, 153, 153);
 `;
 
 const Wrap = styled.div`
-	display: flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   max-width: 1280px;
   padding: 0 1rem;
 `;
 
 const InnerWrap = styled.div`
-	display: flex;
+  display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
   a {
@@ -32,11 +38,11 @@ const InnerWrap = styled.div`
 `;
 
 const Copyright = styled.div`
-	margin-top: 4px;
+  margin-top: 4px;
   font-size: 1rem;
   img {
     height: 70px;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     &:hover {
       filter: brightness(0) invert(1) !important;
     }
@@ -44,7 +50,7 @@ const Copyright = styled.div`
 `;
 
 const Pages = styled.div`
-	position: relative;
+  position: relative;
   width: 15%;
   font-size: 1.5rem;
   text-transform: uppercase;
@@ -60,7 +66,7 @@ const Pages = styled.div`
 `;
 
 const Socials = styled.div`
-	margin-top: 84px;
+  margin-top: 84px;
   padding: 0;
   ul {
     display: flex;
@@ -71,14 +77,11 @@ const Socials = styled.div`
       font-size: 1.5rem;
       text-decoration: none;
       &:last-child {
-      margin-right: 0;
+        margin-right: 0;
       }
     }
   }
 `;
-
-
-
 
 const Footer = () => {
   return (
@@ -86,64 +89,117 @@ const Footer = () => {
       <Wrap>
         <InnerWrap>
           <Copyright>
-            <Link to="/" >
-              <img src={Logo} alt="The Glow Logo" />
+            <Link to='/'>
+              <img src={Logo} alt='The Glow Logo' />
             </Link>
             <p>© 2020 The Glow JP Ltd.</p>
-            <p>All rights reserved. <Link to="/privacy-policy" className="copyrightLinks">Privacy Policy</Link></p>
+            <p>
+              All rights reserved.{' '}
+              <Link to='/privacy-policy' className='copyrightLinks'>
+                Privacy Policy
+              </Link>
+            </p>
           </Copyright>
           <Pages>
             <ul>
               <li>
-                <Link to="/news">News</Link>
+                <Link to='/news'>News</Link>
               </li>
               <li>
-                <Link to="/reviews">Reviews</Link>
+                <Link to='/reviews'>Reviews</Link>
               </li>
               <li>
-                <Link to="/features">Features</Link>
+                <Link to='/features'>Features</Link>
               </li>
               <li>
-                <Link to="/guides">Guides</Link>
+                <Link to='/guides'>Guides</Link>
               </li>
             </ul>
           </Pages>
           <Pages>
             <ul>
               <li>
-                <Link to="/about">About Us</Link>
+                <Link to='/about'>About Us</Link>
               </li>
               <li>
-                <Link to="/ad">Advertise</Link>
+                <Link to='/ad'>Advertise</Link>
               </li>
               <li>
-                <a href="https://www.patreon.com/theglowjp" target="_blank" rel="noreferrer">Support Us</a>
+                <a
+                  href='https://www.patreon.com/theglowjp'
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  Support Us
+                </a>
               </li>
             </ul>
           </Pages>
           <Socials>
             <ul>
               <li>
-                <a href="https://www.instagram.com/theglow.jp/" target="_blank" rel="noreferrer" role="button" aria-label="Mute volume"><FaInstagram/></a>
+                <a
+                  href='https://www.instagram.com/theglow.jp/'
+                  target='_blank'
+                  rel='noreferrer'
+                  role='button'
+                  aria-label='Mute volume'
+                >
+                  <FaInstagram />
+                </a>
               </li>
               <li>
-                <a href="https://www.facebook.com/theglow.jp" target="_blank" rel="noreferrer" role="button" aria-label="Mute volume"><FaFacebookF/></a>
+                <a
+                  href='https://www.facebook.com/theglow.jp'
+                  target='_blank'
+                  rel='noreferrer'
+                  role='button'
+                  aria-label='Mute volume'
+                >
+                  <FaFacebookF />
+                </a>
               </li>
               <li>
-                <a href="https://twitter.com/theglow_jp/" target="_blank" rel="noreferrer" role="button" aria-label="Mute volume"><FaTwitter/></a>
+                <a
+                  href='https://twitter.com/theglow_jp/'
+                  target='_blank'
+                  rel='noreferrer'
+                  role='button'
+                  aria-label='Mute volume'
+                >
+                  <FaTwitter />
+                </a>
               </li>
               <li>
-                <a className="socialMobileItem" href="https://open.spotify.com/user/ji21784pk94jfyv4u9w01xkhe?si=ZOykmTClStyjbTpG9XmPGg" target="_blank" rel="noreferrer" role="button" aria-label="Mute volume"><FaSpotify/></a>
+                <a
+                  className='socialMobileItem'
+                  href='https://open.spotify.com/user/ji21784pk94jfyv4u9w01xkhe?si=ZOykmTClStyjbTpG9XmPGg'
+                  target='_blank'
+                  rel='noreferrer'
+                  role='button'
+                  aria-label='Mute volume'
+                >
+                  <FaSpotify />
+                </a>
               </li>
               <li>
-                <a className="socialMobileItem" href="https://itunes.apple.com/profile/theglow_jp" target="_blank" rel="noreferrer" role="button" aria-label="Mute volume"><FaApple/></a>
+                <a
+                  className='socialMobileItem'
+                  href='https://itunes.apple.com/profile/theglow_jp'
+                  target='_blank'
+                  rel='noreferrer'
+                  role='button'
+                  aria-label='Mute volume'
+                >
+                  <FaApple />
+                </a>
               </li>
             </ul>
           </Socials>
         </InnerWrap>
       </Wrap>
     </Container>
-  )
-}
+  );
+};
 
 export default Footer;

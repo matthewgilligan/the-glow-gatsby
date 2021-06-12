@@ -1,25 +1,28 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import IndexLayout from './../layouts/IndexLayout';
-import { OriginalScheme } from './../helpers/navColors.js';
-import Features from './../components/Features';
+import IndexLayout from 'layouts/IndexLayout';
+import Features from 'components/Features';
+import { OriginalScheme } from 'helpers/navColors.js';
 
 const FeaturesIndex = ({ data }) => {
-	return (
-		<IndexLayout title="Features" navColor={OriginalScheme}>
-			<Features {...data}/>
-		</IndexLayout>
-	);
+  return (
+    <IndexLayout title='Features' navColor={OriginalScheme}>
+      <Features {...data} />
+    </IndexLayout>
+  );
 };
 
 export const query = graphql`
   query {
-    allStrapiFeatures (sort: { fields: publishedDate, order: DESC }, filter: { subcategory: { name: { ne: "Selector" } } }) {
+    allStrapiFeatures(
+      sort: { fields: publishedDate, order: DESC }
+      filter: { subcategory: { name: { ne: "Selector" } } }
+    ) {
       edges {
         node {
           title
-          publishedDate(formatString:"MMMM Do YYYY")
+          publishedDate(formatString: "MMMM Do YYYY")
           slug
           artists {
             englishName
@@ -37,6 +40,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
 export default FeaturesIndex;

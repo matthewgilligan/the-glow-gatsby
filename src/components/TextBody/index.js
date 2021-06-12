@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
-import { formatArtistTags } from './../../helpers/formatLists';
+
+import { formatArtistTags } from 'helpers/formatLists';
 
 const Container = styled.div`
   z-index: 1000;
@@ -38,14 +39,14 @@ const ArtistTags = styled.div`
   margin: 40px auto 60px;
   padding-top: 40px;
   text-transform: uppercase;
-  color: #C0C0C0;
+  color: #c0c0c0;
   font-weight: bold;
   border-top: 2px solid black;
   a {
     color: black;
     text-decoration: none;
     &:hover {
-        color: #E7334D;
+      color: #e7334d;
     }
   }
 `;
@@ -56,28 +57,32 @@ const TextBody = ({ body, subtitle, artists }) => {
   return (
     <Container>
       <Subtitle>
-        <ReactMarkdown 
+        <ReactMarkdown
           children={subtitle}
-          linkTarget="_blank"
+          linkTarget='_blank'
           rehypePlugins={[rehypeRaw]}
-          transformImageUri={uri => uri.startsWith('http') ? uri : `${process.env.IMAGE_BASE_URL}${uri}`}
+          transformImageUri={(uri) =>
+            uri.startsWith('http') ? uri : `${process.env.IMAGE_BASE_URL}${uri}`
+          }
         />
       </Subtitle>
       <Body>
-        <ReactMarkdown 
+        <ReactMarkdown
           children={body}
-          linkTarget="_blank"
+          linkTarget='_blank'
           rehypePlugins={[rehypeRaw]}
-          transformImageUri={uri => uri.startsWith('http') ? uri : `${process.env.IMAGE_BASE_URL}${uri}`}
+          transformImageUri={(uri) =>
+            uri.startsWith('http') ? uri : `${process.env.IMAGE_BASE_URL}${uri}`
+          }
         />
       </Body>
-      {artistTags && 
+      {artistTags && (
         <ArtistTags>
-          <p>Tags: { artistTags }</p>
+          <p>Tags: {artistTags}</p>
         </ArtistTags>
-      }
+      )}
     </Container>
-  )
+  );
 };
 
 export default TextBody;

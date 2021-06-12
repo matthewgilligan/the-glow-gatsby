@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
+import { Link, graphql } from 'gatsby';
 
-import MainLayout from './../layouts/MainLayout';
-import { LightScheme } from './../helpers/navColors';
-import TextBody from './../components/TextBody';
+import TextBody from 'components/TextBody';
+import MainLayout from 'layouts/MainLayout';
+import { LightScheme } from 'helpers/navColors';
 
 const NavBarImg = styled.div`
   position: fixed;
@@ -99,14 +99,23 @@ const Values = styled.div`
 `;
 
 const AlbumTemplate = ({ data }) => {
-  const { englishTitle, japaneseTitle, artists, body, cover, releaseDate, genre, label } = data.strapiAlbums;
+  const {
+    englishTitle,
+    japaneseTitle,
+    artists,
+    body,
+    cover,
+    releaseDate,
+    genre,
+    label,
+  } = data.strapiAlbums;
 
-  console.log(cover)
+  console.log(cover);
 
   return (
     <MainLayout navColor={LightScheme}>
       <NavBarImg>
-        <img src={`${process.env.IMAGE_BASE_URL}${cover[0].url}`} alt=""/>
+        <img src={`${process.env.IMAGE_BASE_URL}${cover[0].url}`} alt='' />
       </NavBarImg>
       <Banner>
         <BannerWrap>
@@ -118,7 +127,7 @@ const AlbumTemplate = ({ data }) => {
             {japaneseTitle && <h2>{japaneseTitle}</h2>}
           </TextWrap>
           <ImgWrap>
-            <img src={`${process.env.IMAGE_BASE_URL}${cover[0].url}`} alt=""/>
+            <img src={`${process.env.IMAGE_BASE_URL}${cover[0].url}`} alt='' />
           </ImgWrap>
         </BannerWrap>
       </Banner>
@@ -139,25 +148,25 @@ const AlbumTemplate = ({ data }) => {
               <p>Album</p>
               <p>{genre.name}</p>
               <p>{releaseDate}</p>
-              {label &&
+              {label && (
                 <Link to={`/label/${label.slug}`}>
                   <p>{label.englishName}</p>
                 </Link>
-              }
+              )}
             </Values>
           </Info>
         </Details>
       </Content>
     </MainLayout>
-  )
+  );
 };
 
 export const query = graphql`
-  query($slug: String!){
-    strapiAlbums (slug: { eq: $slug }) {
+  query ($slug: String!) {
+    strapiAlbums(slug: { eq: $slug }) {
       englishTitle
       japaneseTitle
-      releaseDate(formatString:"MMMM Do YYYY")
+      releaseDate(formatString: "MMMM Do YYYY")
       artists {
         englishName
         slug

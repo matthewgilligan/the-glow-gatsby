@@ -1,27 +1,25 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import IndexLayout from './../layouts/IndexLayout';
-import { OriginalScheme } from './../helpers/navColors.js';
-import Albums from './../components/Albums';
+import IndexLayout from 'layouts/IndexLayout';
+import Albums from 'components/Albums';
+import { OriginalScheme } from 'helpers/navColors.js';
 
 const NewMusicIndex = ({ data }) => {
   const genres = Object.entries(data);
 
-	return (
-		<IndexLayout title="New Music" navColor={OriginalScheme}>
+  return (
+    <IndexLayout title='New Music' navColor={OriginalScheme}>
       {genres.map((genre, pos) => {
-        return (
-          <Albums key={pos} {...genre} />
-        )
+        return <Albums key={pos} {...genre} />;
       })}
-		</IndexLayout>  
-	);
+    </IndexLayout>
+  );
 };
 
 export const query = graphql`
   query {
-    all: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC } ){
+    all: allStrapiAlbums(sort: { fields: releaseDate, order: DESC }) {
       edges {
         node {
           englishTitle
@@ -32,14 +30,17 @@ export const query = graphql`
           genre {
             name
           }
-          releaseDate(formatString:"MMMM D YYYY")
+          releaseDate(formatString: "MMMM D YYYY")
           cover {
             url
           }
         }
       }
     }
-    pop: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC }, filter: { genre:{ name: { eq: "Pop" } } } ) {
+    pop: allStrapiAlbums(
+      sort: { fields: releaseDate, order: DESC }
+      filter: { genre: { name: { eq: "Pop" } } }
+    ) {
       edges {
         node {
           englishTitle
@@ -50,14 +51,17 @@ export const query = graphql`
           genre {
             name
           }
-          releaseDate(formatString:"MMMM D YYYY")
+          releaseDate(formatString: "MMMM D YYYY")
           cover {
             url
           }
         }
       }
     }
-    rock: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC }, filter: { genre:{ name: { eq: "Rock" } } } ) {
+    rock: allStrapiAlbums(
+      sort: { fields: releaseDate, order: DESC }
+      filter: { genre: { name: { eq: "Rock" } } }
+    ) {
       edges {
         node {
           englishTitle
@@ -68,14 +72,17 @@ export const query = graphql`
           genre {
             name
           }
-          releaseDate(formatString:"MMMM D YYYY")
+          releaseDate(formatString: "MMMM D YYYY")
           cover {
             url
           }
         }
       }
     }
-    hiphop: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC }, filter: { genre:{ name: { eq: "Hip-Hop" } } } ) {
+    hiphop: allStrapiAlbums(
+      sort: { fields: releaseDate, order: DESC }
+      filter: { genre: { name: { eq: "Hip-Hop" } } }
+    ) {
       edges {
         node {
           englishTitle
@@ -86,14 +93,17 @@ export const query = graphql`
           genre {
             name
           }
-          releaseDate(formatString:"MMMM D YYYY")
+          releaseDate(formatString: "MMMM D YYYY")
           cover {
             url
           }
         }
       }
     }
-    electronic: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC }, filter: { genre:{ name: { eq: "Electronic" } } } ) {
+    electronic: allStrapiAlbums(
+      sort: { fields: releaseDate, order: DESC }
+      filter: { genre: { name: { eq: "Electronic" } } }
+    ) {
       edges {
         node {
           englishTitle
@@ -104,14 +114,17 @@ export const query = graphql`
           genre {
             name
           }
-          releaseDate(formatString:"MMMM D YYYY")
+          releaseDate(formatString: "MMMM D YYYY")
           cover {
             url
           }
         }
       }
     }
-    experimental: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC }, filter: { genre:{ name: { eq: "Experimental" } } } ) {
+    experimental: allStrapiAlbums(
+      sort: { fields: releaseDate, order: DESC }
+      filter: { genre: { name: { eq: "Experimental" } } }
+    ) {
       edges {
         node {
           englishTitle
@@ -122,14 +135,17 @@ export const query = graphql`
           genre {
             name
           }
-          releaseDate(formatString:"MMMM D YYYY")
+          releaseDate(formatString: "MMMM D YYYY")
           cover {
             url
           }
         }
       }
     }
-    folk: allStrapiAlbums ( sort: { fields: releaseDate, order: DESC }, filter: { genre:{ name: { eq: "Folk" } } } ) {
+    folk: allStrapiAlbums(
+      sort: { fields: releaseDate, order: DESC }
+      filter: { genre: { name: { eq: "Folk" } } }
+    ) {
       edges {
         node {
           englishTitle
@@ -140,7 +156,7 @@ export const query = graphql`
           genre {
             name
           }
-          releaseDate(formatString:"MMMM D YYYY")
+          releaseDate(formatString: "MMMM D YYYY")
           cover {
             url
           }

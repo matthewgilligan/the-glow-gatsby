@@ -1,13 +1,15 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     siteTitle: 'The Glow',
     siteUrl: 'https://www.theglow.jp/',
     siteCover: 'src/images/site_cover.jpg',
     siteDescription: 'Putting Japanese music in the spotlight.',
-    siteLang:'en-US',
+    siteLang: 'en-US',
     twitterUsername: 'theglow_jp',
     facebookUsername: 'theglow.jp',
-    instagramUsername: 'theglow.jp'
+    instagramUsername: 'theglow.jp',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -17,15 +19,32 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        icon: `src/images/favicon.png`
-      }
+        icon: `src/images/favicon.png`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        assets: path.join(__dirname, 'src/assets'),
+        components: path.join(__dirname, 'src/components'),
+        hooks: path.join(__dirname, 'src/hooks'),
+        layouts: path.join(__dirname, 'src/layouts'),
+        pages: path.join(__dirname, 'src/pages'),
+        styles: path.join(__dirname, 'src/styles'),
+        templates: path.join(__dirname, 'src/templates'),
+      },
     },
     {
       resolve: 'gatsby-source-strapi',
       options: {
         apiURL: 'http://localhost:1337',
         collectionTypes: [
-          'artists', 'authors', 'albums', 'genres', 'features', 'labels'
+          'artists',
+          'authors',
+          'albums',
+          'genres',
+          'features',
+          'labels',
         ],
         queryLimit: 1000,
       },
@@ -34,8 +53,8 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'src',
-        path: `${__dirname}/src/`
-      }
+        path: `${__dirname}/src/`,
+      },
     },
     {
       resolve: 'gatsby-transformer-remark',
@@ -46,11 +65,11 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 750,
-              linkImagesToOriginal: false
-            }
-          }
-        ]
-      }
-    }
-  ]
-}
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
+    },
+  ],
+};

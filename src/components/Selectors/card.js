@@ -1,6 +1,6 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Link } from 'gatsby';
-import styled from "styled-components";
 
 const Card = styled.div`
   padding: 0 15px;
@@ -33,11 +33,16 @@ const SelectorCard = ({ node }) => {
   return (
     <Card>
       <Link to={`${slug}`}>
-        {coverImage && <img src={process.env.IMAGE_BASE_URL + coverImage.url} alt=""/>}
-        <h2><span>#{selectorID}</span>{artists[0].englishName}</h2>
+        {coverImage && (
+          <img src={process.env.IMAGE_BASE_URL + coverImage.url} alt='' />
+        )}
+        <h2>
+          <span>#{selectorID}</span>
+          {artists[0].englishName}
+        </h2>
       </Link>
     </Card>
-  )
+  );
 };
 
 export default SelectorCard;

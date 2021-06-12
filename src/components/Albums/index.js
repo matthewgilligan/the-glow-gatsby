@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 import Album from './album';
 
-const Container = styled.div`
-`;
+const Container = styled.div``;
 
 const AlbumsWrap = styled.div`
   display: flex;
@@ -20,32 +19,28 @@ const AlbumsWrap = styled.div`
 
 const Albums = (props) => {
   const { edges } = props[1];
-  const genre = props[0] === "all" ? "All" : edges[0].node.genre.name;
+  const genre = props[0] === 'all' ? 'All' : edges[0].node.genre.name;
 
   if (!Array.isArray(edges)) return null;
 
   if (edges.length < 1) {
     return (
       <Container>
-        <p>
-          Content is on the way - stay tuned!
-        </p>
+        <p>Content is on the way - stay tuned!</p>
       </Container>
     );
-  };
+  }
 
   return (
     <Container>
       <h1>{genre}</h1>
       <AlbumsWrap>
         {edges.map((edge, pos) => {
-          return (
-            <Album key={pos} {...edge.node} />
-          )
+          return <Album key={pos} {...edge.node} />;
         })}
       </AlbumsWrap>
     </Container>
-  )
+  );
 };
 
 export default Albums;

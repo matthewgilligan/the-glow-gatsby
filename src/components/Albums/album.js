@@ -39,34 +39,34 @@ const Details = styled.div`
   p {
     font-size: 10px;
     font-weight: bolder;
-    margin-top: .7rem;
+    margin-top: 0.7rem;
     text-transform: uppercase;
     color: silver;
   }
 `;
 
-const Album = props => {
+const Album = (props) => {
   const { englishTitle, artists, cover, slug, releaseDate } = props;
 
   return (
     <Container>
       <Link to={`/album/${slug}`}>
         <ImgWrap>
-          <img 
-            src={`http://localhost:1337${cover[0].url}`} 
-            alt=""
-            className="image"
-            />
+          <img
+            src={`http://localhost:1337${cover[0].url}`}
+            alt=''
+            className='image'
+          />
         </ImgWrap>
       </Link>
-      
+
       <Details>
         <h3>{artists[0].englishName}</h3>
         <h3>{englishTitle}</h3>
         <p>{releaseDate}</p>
       </Details>
     </Container>
-  )
+  );
 };
 
 export default Album;

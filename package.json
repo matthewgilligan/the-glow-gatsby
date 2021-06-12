@@ -40,16 +40,36 @@
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "css-loader": "^5.2.6",
     "env-cmd": "^10.1.0",
+    "eslint": "^7.28.0",
+    "eslint-plugin-react": "^7.24.0",
+    "gatsby-plugin-root-import": "^2.0.6",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
     "prettier": "^2.3.1",
     "style-loader": "^2.0.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js}": [
+      "eslint --fix"
+    ],
+    "*.+{js,htm,html,jsx,json,yml,yaml,css,less,scss,ts,tsx,md,graphql,mdx}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "jsxSingleQuote": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Link } from 'gatsby';
-import styled from "styled-components";
 
 const Container = styled.div`
   margin: 0 auto;
@@ -51,15 +51,16 @@ const Selectors = ({ node }) => {
 
   return (
     <Container>
-
       <Link to={`${slug}`}>
-      <p>#</p>
-      <p>{selectorID}</p>
-        {coverImage && <img src={process.env.IMAGE_BASE_URL + coverImage.url} alt=""/>}
+        <p>#</p>
+        <p>{selectorID}</p>
+        {coverImage && (
+          <img src={process.env.IMAGE_BASE_URL + coverImage.url} alt='' />
+        )}
         <h2>{artists[0].englishName}</h2>
       </Link>
     </Container>
-  )
+  );
 };
 
 export default Selectors;

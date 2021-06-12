@@ -13,27 +13,23 @@ const Container = styled.div`
 
 const Features = (props) => {
   const { edges } = props.allStrapiFeatures;
-	if (!Array.isArray(edges)) return null;
+  if (!Array.isArray(edges)) return null;
 
-	if (edges.length < 1) {
-		return (
-			<Container>
-				<p>
-					Content is on the way - stay tuned!
-				</p>
-			</Container>
-		);
-	};
+  if (edges.length < 1) {
+    return (
+      <Container>
+        <p>Content is on the way - stay tuned!</p>
+      </Container>
+    );
+  }
 
-	return (
-		<Container>
-			{edges.map((edge, pos) => {
-				return (
-					<Feature key={pos} {...edge} />
-				)
-			})}
-		</Container>
-	)
+  return (
+    <Container>
+      {edges.map((edge, pos) => {
+        return <Feature key={pos} {...edge} />;
+      })}
+    </Container>
+  );
 };
 
 export default Features;

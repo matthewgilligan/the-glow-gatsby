@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { formatAuthor } from '../../helpers/formatLists';
+
+import { formatAuthor } from 'helpers/formatLists';
 
 const Container = styled.div`
   flex-basis: calc(33.3333% - 30px);
@@ -43,32 +44,37 @@ const Info = styled.div`
   }
 `;
 
-
 const Feature = ({ node }) => {
   const { title, category, slug, authors, artists, coverImage } = node;
 
   let author = formatAuthor(authors);
-  
+
   if (author.length > 23) {
-    author = `${author.substring(0,23)}...`;
-  };
+    author = `${author.substring(0, 23)}...`;
+  }
 
   return (
     <Container>
       <ImgWrap>
         <Link to={`./${slug}`}>
-          <img src={process.env.IMAGE_BASE_URL + coverImage.url} alt="" />
+          <img src={process.env.IMAGE_BASE_URL + coverImage.url} alt='' />
         </Link>
       </ImgWrap>
       <TextWrap>
         <Info>
-          <p className="type"><strong>{category.name}</strong> <span>|</span>By {author}</p>
+          <p className='type'>
+            <strong>{category.name}</strong> <span>|</span>By {author}
+          </p>
           {/* <p className="author">{author[0].englishName}</p> */}
         </Info>
-        <h2>{category.name === "Review" ? `Review: ${artists[0].englishName} - ${title}` : title}</h2>
+        <h2>
+          {category.name === 'Review'
+            ? `Review: ${artists[0].englishName} - ${title}`
+            : title}
+        </h2>
       </TextWrap>
     </Container>
-  )
+  );
 };
 
 export default Feature;
