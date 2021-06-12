@@ -1,21 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import Album from './album';
-
-const Container = styled.div``;
-
-const AlbumsWrap = styled.div`
-  display: flex;
-  overflow-y: hidden;
-  padding-top: 20px;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  &:first-child {
-    padding-left: 0px;
-  }
-`;
+import AlbumCard from './Card';
+import { AlbumsWrap } from './styled';
 
 const Albums = (props) => {
   const { edges } = props[1];
@@ -25,21 +11,21 @@ const Albums = (props) => {
 
   if (edges.length < 1) {
     return (
-      <Container>
+      <>
         <p>Content is on the way - stay tuned!</p>
-      </Container>
+      </>
     );
   }
 
   return (
-    <Container>
+    <>
       <h1>{genre}</h1>
       <AlbumsWrap>
         {edges.map((edge, pos) => {
-          return <Album key={pos} {...edge.node} />;
+          return <AlbumCard key={pos} {...edge.node} />;
         })}
       </AlbumsWrap>
-    </Container>
+    </>
   );
 };
 
