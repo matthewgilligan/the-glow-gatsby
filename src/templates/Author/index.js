@@ -1,11 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
 import MainLayout from 'layouts/MainLayout';
 import { OriginalScheme } from 'helpers/navColors';
 
-const Container = styled.div``;
+import { Container } from './styled';
 
 const AuthorTemplate = ({ data }) => {
   const { englishName, japaneseName } = data.strapiAuthors;
