@@ -19,7 +19,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        icon: `src/images/favicon.png`,
+        icon: `src/assets/favicon.png`,
       },
     },
     {
@@ -27,6 +27,7 @@ module.exports = {
       options: {
         assets: path.join(__dirname, 'src/assets'),
         components: path.join(__dirname, 'src/components'),
+        helpers: path.join(__dirname, 'src/helpers'),
         hooks: path.join(__dirname, 'src/hooks'),
         layouts: path.join(__dirname, 'src/layouts'),
         pages: path.join(__dirname, 'src/pages'),
